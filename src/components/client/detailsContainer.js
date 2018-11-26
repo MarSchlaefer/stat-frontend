@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PlayByPlayContainer from '../admin/playByPlayContainer'
 import TeamStats from '../admin/teamStats'
+import TopPlayerContainer from './topPlayerContainer'
 
 export default class DetailsContainer extends Component {
   render() {
@@ -16,7 +17,7 @@ export default class DetailsContainer extends Component {
           </div>
         </div>
         <div className="top-players">
-          <h1>in top players</h1>
+          <TopPlayerContainer />
         </div>
       </React.Fragment>
     )

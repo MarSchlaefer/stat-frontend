@@ -8,7 +8,7 @@ export default class GameContainer extends Component {
     return (
       <React.Fragment>
         <div className="logo-container">
-          <LogoContainer />
+          <LogoContainer gameDetails={this.props.gameDetails}/>
         </div>
         <div className="details-container">
           <DetailsContainer gameDetails={this.props.gameDetails}/>

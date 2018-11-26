@@ -10,7 +10,8 @@ class App extends Component {
     super()
     this.state = {
       game: [],
-      signIn: ""
+      signIn: "",
+      keyPress: ""
     }
   }
 
@@ -28,7 +29,7 @@ class App extends Component {
 
   renderContent = () => {
     if (this.state.signIn === "admin") {
-      return <div>
+      return <div className="employee">
         <Admin gameDetails={this.state.game}/>
       </div>
     } else if (this.state.signIn === "client"){
@@ -59,6 +60,12 @@ class App extends Component {
       signIn: username
     })
   }
+
+  // handleKeyPress = (event) => {
+  //   this.setState({
+  //     keyPress: event.keyCode
+  //   }, () => console.log(this.state.keyPress))
+  // }
 
 } // end of class
 
