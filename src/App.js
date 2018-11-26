@@ -1,18 +1,65 @@
 import React, { Component } from 'react';
 import './App.css';
-import StatsContainer from './components/statsContainer'
-import PlaysContainer from './components/playsContainer'
+import SignIn from './components/signIn'
+import Client from './components/client/client'
+import Admin from './components/admin/admin'
 
 class App extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      game: [],
+      signIn: ""
+    }
+  }
+
+  componentDidMount() {
+    this.getGame()
+  }
+
   render() {
     return (
       <div className="App">
-        <StatsContainer className="column-sm"/>
-        <PlaysContainer className="column-sm"/>
-        <StatsContainer className="column-sm"/>
+        {this.renderContent()}
       </div>
     );
   }
-}
+
+  renderContent = () => {
+    if (this.state.signIn === "admin") {
+      return <div>
+        <Admin gameDetails={this.state.game}/>
+      </div>
+    } else if (this.state.signIn === "client"){
+      return <div className="client">
+        <Client gameDetails={this.state.game}/>
+      </div>
+    } else {
+      return <div className="sign-in">
+        <SignIn handleSignIn={this.handleSignIn}/>
+      </div>
+    }
+  }
+
+
+  getGame = () => {
+    fetch('http://localhost:3000/games')
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+      this.setState({
+        game: json
+      })
+    })
+  }
+
+  handleSignIn = (username) => {
+    this.setState({
+      signIn: username
+    })
+  }
+
+} // end of class
 
 export default App;
