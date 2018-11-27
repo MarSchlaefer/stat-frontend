@@ -86,10 +86,10 @@ export default class TeamRow extends Component {
   ftTotal = () => {
     let ftTotal = 0
     if (this.props.team1) {
-      this.props.team1.players.forEach(player => ftTotal += player.ft)
+      this.props.team1.players.forEach(player => ftTotal += player.fta)
       return ftTotal
     } else if (this.props.team2) {
-      this.props.team2.players.forEach(player => ftTotal += player.ft)
+      this.props.team2.players.forEach(player => ftTotal += player.fta)
       return ftTotal
     } else {
       return <h1>No team selected</h1>

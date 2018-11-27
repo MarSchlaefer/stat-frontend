@@ -5,7 +5,7 @@ export default class TopPlayer extends Component {
     return (
       <div className="player-card">
         <div className="player-image">
-          <img src="https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_8.png"/>
+          <img src="https://fch.lisboa.ucp.pt/sites/default/files/assets/images/avatar-fch_8.png" alt=""/>
         </div>
         <div className="player-details">
           <p>Name</p>

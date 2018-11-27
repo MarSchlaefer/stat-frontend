@@ -3,13 +3,21 @@ import StatsContainer from './statsContainer'
 import PlaysContainer from './playsContainer'
 
 export default class Admin extends Component {
+  constructor() {
+    super()
+    this.state = {
+      possession: "H"
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
-        <StatsContainer gameDetails={this.props.gameDetails} team1='team1'/>
-        <PlaysContainer gameDetails={this.props.gameDetails}/>
-        <StatsContainer gameDetails={this.props.gameDetails} team2='team2'/>
+        <StatsContainer gameDetails={this.props.gameDetails} team1='team1' possession={this.state.possession}/>
+        <PlaysContainer gameDetails={this.props.gameDetails} possession={this.state.possession}/>
+        <StatsContainer gameDetails={this.props.gameDetails} team2='team2' possession={this.state.possession}/>
       </React.Fragment>
     )
   }
-}
+
+} //end of class

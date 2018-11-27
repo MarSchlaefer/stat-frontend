@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Logo from './logo'
-import FoulTotal from '../admin/foulTotal'
 import PointTotal from '../admin/pointTotal'
 import Timer from '../admin/timer'
 

@@ -17,13 +17,17 @@ export default class PlayByPlayContainer extends Component{
   render() {
     return(
       <div className="play-container">
-        <h3>Plays</h3>
+        <div className="play-title">
+          <h3>Plays</h3>
+        </div>
         <table className="play">
-          <tr>
-            <th>Time</th>
-            <th>Play</th>
-          </tr>
-          {this.makePlay()}
+          <tbody>
+            <tr>
+              <th>Time</th>
+              <th>Play</th>
+            </tr>
+            {this.makePlay()}
+          </tbody>
         </table>
       </div>
     )
@@ -43,10 +47,15 @@ export default class PlayByPlayContainer extends Component{
   makePlay = () => {
     if (this.state.plays.length > 0) {
       return this.state.plays.map(play => {
-        return <Play />
+        return <tr>
+          <Play />
+        </tr>
       })
     } else {
-      return "No plays at this time"
+      return <tr>
+        <td></td>
+        <td></td>
+      </tr>
     }
   }
 
