@@ -11,9 +11,14 @@ export default class Play extends Component {
   }
 
   renderPlay = () => {
+    // debugger
     return <React.Fragment>
-      <td>Time</td>
-      <td>Play</td>
+      <td>{this.props.play.timer}</td>
+      <td>{this.formatPlay()}</td>
     </React.Fragment>
+  }
+
+  formatPlay = () => {
+    console.log("formatting play")
   }
 } //end of class

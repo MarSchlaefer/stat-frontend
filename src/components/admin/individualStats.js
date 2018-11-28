@@ -28,7 +28,10 @@ export default class IndividualStats extends Component{
 
   makePlayer = () => {
     if (this.props.gameDetails.length > 0 && this.props.team1) {
-      return this.props.gameDetails[0].teams[0].players.map(player => {
+      let sortedPlayers = this.props.gameDetails[0].teams[0].players.sort((a, b) => {
+        return a.number - b.number
+      })
+      return sortedPlayers.map(player => {
         return <tr><IndividualPlayer
           gameDetails={this.props.gameDetails}
           team1="team1"
@@ -38,7 +41,10 @@ export default class IndividualStats extends Component{
         </tr>
       })
     } else if (this.props.gameDetails.length > 0 && this.props.team2) {
-      return this.props.gameDetails[0].teams[1].players.map(player => {
+      let sortedPlayers = this.props.gameDetails[0].teams[1].players.sort((a, b) => {
+        return a.number - b.number
+      })
+      return sortedPlayers.map(player => {
         return <tr><IndividualPlayer
           gameDetails={this.props.gameDetails}
           team2="team2"

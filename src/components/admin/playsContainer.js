@@ -8,10 +8,15 @@ export default class PlaysContainer extends Component {
   constructor() {
     super()
     this.state = {
+      plays: [],
       intervalId: 0,
       minutes: 20,
       seconds: 0
     }
+  }
+
+  componentDidMount = () => {
+    this.getPlays()
   }
 
   render() {
@@ -19,11 +24,43 @@ export default class PlaysContainer extends Component {
     const seconds = this.formatNum(this.state.seconds)
     return(
       <div className="column plays">
-        <TimerContainer gameDetails={this.props.gameDetails} minutes={minutes} seconds={seconds} startClicked={this.startClicked}/>
-        <KeyContainer gameDetails={this.props.gameDetails} possession={this.props.possession} minutes={minutes} seconds={seconds}/>
-        <PlayByPlayContainer />
+        <TimerContainer
+          gameDetails={this.props.gameDetails}
+          minutes={minutes}
+          seconds={seconds}
+          startClicked={this.startClicked}/>
+        <KeyContainer
+          gameDetails={this.props.gameDetails}
+          possession={this.props.possession}
+          minutes={minutes}
+          seconds={seconds}
+          editGameDetails={this.props.editGameDetails}
+          getNewPlays={this.getNewPlays}
+          changePossession={this.props.changePossession}
+          getPlays={this.getPlays}
+          />
+        <PlayByPlayContainer
+          plays={this.state.plays}
+          />
       </div>
     )
+  }
+
+  getPlays = () => {
+    fetch('http://localhost:3000/plays')
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+      this.setState({
+        plays: json
+      }, () => console.log(this.state.plays, "plays"))
+    })
+  }
+
+  getNewPlays = (json) => {
+    this.setState(currentState => ({
+      plays: [json, ...currentState.plays]
+    }), () => console.log(this.state.plays, "after fetch"))
   }
 
   formatNum = timerNum => {
@@ -37,7 +74,7 @@ export default class PlaysContainer extends Component {
       return this.pauseTimer()
     }
   }
-  
+
   // spacebar = (event) => {
   //   console.log('spacebar hit');
   //   if (event.keyCode === "32"){

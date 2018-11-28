@@ -12,6 +12,7 @@ export default class GameDetails extends Component{
 
   renderContent = () => {
     if (this.props.gameDetails.length > 0 && this.props.team1) {
+      // debugger
       return <React.Fragment>
       <h1>{this.props.gameDetails[0].teams[0].name} vs. {this.props.gameDetails[0].teams[1].name}</h1>
       <h3>{this.props.gameDetails[0].time}</h3>

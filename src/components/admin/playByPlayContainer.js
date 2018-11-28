@@ -3,17 +3,6 @@ import Play from './play.js'
 
 export default class PlayByPlayContainer extends Component{
 
-  constructor(){
-    super()
-    this.state = {
-      plays: []
-    }
-  }
-
-  componentDidMount = () => {
-    this.getPlays()
-  }
-
   render() {
     return(
       <div className="play-container">
@@ -33,22 +22,11 @@ export default class PlayByPlayContainer extends Component{
     )
   }
 
-  getPlays = () => {
-    fetch('http://localhost:3000/plays')
-    .then(response => response.json())
-    .then(json => {
-      console.log(json)
-      this.setState({
-        plays: json
-      })
-    })
-  }
-
   makePlay = () => {
-    if (this.state.plays.length > 0) {
-      return this.state.plays.map(play => {
+    if (this.props.plays.length > 0) {
+      return this.props.plays.map(play => {
         return <tr>
-          <Play />
+          <Play play={play}/>
         </tr>
       })
     } else {

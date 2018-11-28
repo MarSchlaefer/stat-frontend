@@ -30,7 +30,7 @@ class App extends Component {
   renderContent = () => {
     if (this.state.signIn === "admin") {
       return <div className="employee">
-        <Admin gameDetails={this.state.game}/>
+        <Admin gameDetails={this.state.game} editGameDetails={this.getGame}/>
       </div>
     } else if (this.state.signIn === "client"){
       return <div className="client">
@@ -54,6 +54,46 @@ class App extends Component {
       })
     })
   }
+
+  // editGameDetails = (teamIndex, id, json) => {
+  //   this.setState(currentState => {
+  //     const x = {game: currentState.game.map(game => {
+  //       return game.teams.map(team => {
+  //         if (team.id === teamIndex + 1) {
+  //           team.players.map(player => {
+  //             if (player.id === id) {
+  //               player = json
+  //               return player
+  //             } else {
+  //               return player
+  //             }
+  //           })
+  //         } else {
+  //           return team
+  //         }
+  //       })
+  //     })
+  //   }
+  //   return x;
+  //   })
+  // }
+
+  // currentState.game.map(game => {
+  //   return game.teams.map(team => {
+  //     if (team.id === teamIndex + 1) {
+  //       team.players.map(player => {
+  //         if (player.id === id) {
+  //           player = json
+  //           return player
+  //         } else {
+  //           return player
+  //         })
+  //       }
+  //     } else {
+  //       return team
+  //     }
+  //   })
+  // })
 
   handleSignIn = (username) => {
     this.setState({
