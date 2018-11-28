@@ -81,17 +81,22 @@ export default class KeyContainer extends Component{
 
   handleResultClick = (key) => {
     console.log("result clicked");
+    
+    const playObj = {"action": this.state.currAction, "player_id": this.state.currPlayerId, "timer": `${this.props.minutes}:${this.props.seconds}`, "result": key}
     if (key === "Good") {
       console.log("clicked good");
+      this.props.currentPlay(playObj)
       this.postPlay(key)
       this.patchAttempt(this.state.currPlayerId)
       this.patchGood(this.state.currPlayerId)
     } else if (key === "Miss"){
       console.log("clicked miss");
+      this.props.currentPlay(playObj)
       this.postPlay(key)
       this.patchAttempt(this.state.currPlayerId)
     } else {
       console.log("non-shot play");
+      this.props.currentPlay(playObj)
       this.postPlay("")
       this.patchAttempt(this.state.currPlayerId)
     }
@@ -259,6 +264,7 @@ export default class KeyContainer extends Component{
 
   postPlay = (key) => {
     console.log("in the post play");
+
     fetch('http://localhost:3000/plays', {
       'method' : 'POST',
       // 'mode' : "cors",
@@ -267,19 +273,19 @@ export default class KeyContainer extends Component{
         "Content-Type" : "application/json"
       },
       "body" : JSON.stringify({
-        action: this.state.currAction,
-        player_id: this.state.currPlayerId,
-        timer: `${this.props.minutes}:${this.props.seconds}`,
-        result: key
+        "action": this.state.currAction,
+        "player_id": this.state.currPlayerId,
+        "timer": `${this.props.minutes}:${this.props.seconds}`,
+        "result": key
       })
     })
-    .then(response => response.json())
-    .then(json => {
-      console.log(json, "post play json")
-      this.props.getPlays()
+    .then(response => console.log(response))
+    // .then(json => {
+    //   console.log(json, "post play json")
+      // this.props.getPlays()
       // this.props.getNewPlays(json)
       // this.props.editGameDetails()
-    })
+    // })
   }
 
 

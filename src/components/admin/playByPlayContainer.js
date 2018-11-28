@@ -23,10 +23,17 @@ export default class PlayByPlayContainer extends Component{
   }
 
   makePlay = () => {
-    if (this.props.plays.length > 0) {
-      return this.props.plays.map(play => {
+    if (this.props.currentPlays.length > 0 && this.props.gameDetails.length > 0) {
+      // let sortedPlays = this.props.currentPlay.sort((a, b) => {
+      //   return b.id - a.id
+      // })
+      return this.props.currentPlays.map(play => {
         return <tr>
-          <Play play={play}/>
+          <Play
+            play={play}
+            gameDetails={this.props.gameDetails}
+            possession={this.props.possession}
+            />
         </tr>
       })
     } else {

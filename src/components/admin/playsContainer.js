@@ -8,16 +8,17 @@ export default class PlaysContainer extends Component {
   constructor() {
     super()
     this.state = {
-      plays: [],
+      // plays: [],
+      currentPlays: [],
       intervalId: 0,
       minutes: 20,
       seconds: 0
     }
   }
 
-  componentDidMount = () => {
-    this.getPlays()
-  }
+  // componentDidMount = () => {
+  //   this.getPlays()
+  // }
 
   render() {
     const minutes = this.formatNum(this.state.minutes)
@@ -35,33 +36,35 @@ export default class PlaysContainer extends Component {
           minutes={minutes}
           seconds={seconds}
           editGameDetails={this.props.editGameDetails}
-          getNewPlays={this.getNewPlays}
           changePossession={this.props.changePossession}
-          getPlays={this.getPlays}
+          currentPlay={this.currentPlay}
           />
         <PlayByPlayContainer
+          currentPlays={this.state.currentPlays}
           plays={this.state.plays}
+          gameDetails={this.props.gameDetails}
+          possession={this.props.possession}
           />
       </div>
     )
   }
 
-  getPlays = () => {
-    fetch('http://localhost:3000/plays')
-    .then(response => response.json())
-    .then(json => {
-      console.log(json)
-      this.setState({
-        plays: json
-      }, () => console.log(this.state.plays, "plays"))
-    })
-  }
-
-  getNewPlays = (json) => {
-    this.setState(currentState => ({
-      plays: [json, ...currentState.plays]
-    }), () => console.log(this.state.plays, "after fetch"))
-  }
+  // getPlays = () => {
+  //   fetch('http://localhost:3000/plays')
+  //   .then(response => response.json())
+  //   .then(json => {
+  //     console.log(json)
+  //     this.setState({
+  //       plays: json
+  //     }, () => console.log(this.state.plays, "plays"))
+  //   })
+  // }
+  //
+  // getNewPlays = (json) => {
+  //   this.setState(currentState => ({
+  //     plays: [json, ...currentState.plays]
+  //   }), () => console.log(this.state.plays, "after fetch"))
+  // }
 
   formatNum = timerNum => {
     return timerNum.toString().length === 1 ? "0" + timerNum.toString() : timerNum.toString()
@@ -120,6 +123,12 @@ export default class PlaysContainer extends Component {
       minutes: 20,
       seconds: 0
     })
+  }
+
+  currentPlay = (playObj) => {
+    this.setState(currentState => ({
+      currentPlays: [playObj, ...currentState.currentPlays]
+    }), () => console.log(this.state.currentPlays, "state currentplays"))
   }
 
 } //end of class
