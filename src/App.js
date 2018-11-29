@@ -73,13 +73,11 @@ class App extends Component {
 
 
   getGame = () => {
-    fetch('http://localhost:3000/games')
+    fetch(`http://localhost:3000/games`)
     .then(response => response.json())
-    .then(json => {
-      console.log(json)
-      this.setState({
-        game: json
-      })
+    .then(game => {
+      console.log(game)
+      this.setState({ game })
     })
   }
 
