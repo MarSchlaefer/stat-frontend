@@ -3,6 +3,8 @@ import './App.css';
 import SignIn from './components/signIn'
 import Client from './components/client/client'
 import Admin from './components/admin/admin'
+import { ActionCable } from 'react-actioncable-provider';
+import { API_ROOT } from './constants/index';
 
 class App extends Component {
 
@@ -10,9 +12,11 @@ class App extends Component {
     super()
     this.state = {
       game: [],
+      currGame: null,
       signIn: "",
       keyPress: "",
       currentPlays: [],
+      cablePlays: [],
       possession: "H",
       period: "Period 1",
       intervalId: 0,
@@ -30,6 +34,10 @@ class App extends Component {
     const seconds = this.formatNum(this.state.seconds)
     return (
       <div className="App">
+        <ActionCable
+          channel={{ channel: 'PlaysChannel' }}
+          onReceived={this.handleReceivedGame}
+          />
         {this.renderContent(minutes, seconds)}
       </div>
     );
@@ -61,7 +69,7 @@ class App extends Component {
           minutes={minutes}
           seconds={seconds}
           gameDetails={this.state.game}
-          currentPlays={this.state.currentPlays}
+          currentPlays={this.state.cablePlays}
           />
       </div>
     } else {
@@ -69,6 +77,18 @@ class App extends Component {
         <SignIn handleSignIn={this.handleSignIn}/>
       </div>
     }
+  }
+
+  handleReceivedGame = (response) => {
+    const play = this.parseResponse(response)
+    // debugger
+    this.setState(currentState => ({
+      cablePlays: [play, ...currentState.cablePlays]
+    }))
+  }
+
+  parseResponse = (response) => {
+    return response.play
   }
 
 

@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { ActionCableProvider } from 'react-actioncable-provider';
 import './index.css';
 import App from './App';
-// import * as serviceWorker from './serviceWorker';
-import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 import { API_WS_ROOT } from './constants';
 
 ReactDOM.render(
@@ -13,4 +13,4 @@ ReactDOM.render(
   </ActionCableProvider>,
   document.getElementById('root')
 );
-registerServiceWorker();
+serviceWorker.register();
