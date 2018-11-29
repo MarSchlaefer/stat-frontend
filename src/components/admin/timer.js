@@ -4,8 +4,13 @@ export default class Timer extends Component {
 
   render() {
     return(
-      <div className="timer">
-        <h1>{this.props.minutes}:{this.props.seconds}</h1>
+      <div className={this.props.location === "client" ? "timer-client" : "timer-admin"}>
+        <div className="timer-nums">
+          <p>{this.props.minutes}:{this.props.seconds}</p>
+        </div>
+        <div className="timer-period">
+          <p>{this.props.period}</p>
+        </div>
       </div>
     )
   }

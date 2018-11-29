@@ -9,10 +9,10 @@ export default class PlaysContainer extends Component {
     super()
     this.state = {
       // plays: [],
-      currentPlays: [],
-      intervalId: 0,
-      minutes: 20,
-      seconds: 0
+      // currentPlays: [],
+      // intervalId: 0,
+      // minutes: 20,
+      // seconds: 0
     }
   }
 
@@ -21,27 +21,25 @@ export default class PlaysContainer extends Component {
   // }
 
   render() {
-    const minutes = this.formatNum(this.state.minutes)
-    const seconds = this.formatNum(this.state.seconds)
     return(
       <div className="column plays">
         <TimerContainer
+          period={this.props.period}
           gameDetails={this.props.gameDetails}
-          minutes={minutes}
-          seconds={seconds}
-          startClicked={this.startClicked}/>
+          minutes={this.props.minutes}
+          seconds={this.props.seconds}
+          startClicked={this.props.startClicked}/>
         <KeyContainer
           gameDetails={this.props.gameDetails}
           possession={this.props.possession}
-          minutes={minutes}
-          seconds={seconds}
+          minutes={this.props.minutes}
+          seconds={this.props.seconds}
           editGameDetails={this.props.editGameDetails}
           changePossession={this.props.changePossession}
-          currentPlay={this.currentPlay}
+          currentPlay={this.props.currentPlay}
           />
         <PlayByPlayContainer
-          currentPlays={this.state.currentPlays}
-          plays={this.state.plays}
+          currentPlays={this.props.currentPlays}
           gameDetails={this.props.gameDetails}
           possession={this.props.possession}
           />
@@ -66,17 +64,17 @@ export default class PlaysContainer extends Component {
   //   }), () => console.log(this.state.plays, "after fetch"))
   // }
 
-  formatNum = timerNum => {
-    return timerNum.toString().length === 1 ? "0" + timerNum.toString() : timerNum.toString()
-  }
-
-  startClicked = () => {
-    if (this.state.intervalId === 0) {
-      return this.startTimer()
-    } else {
-      return this.pauseTimer()
-    }
-  }
+  // formatNum = timerNum => {
+  //   return timerNum.toString().length === 1 ? "0" + timerNum.toString() : timerNum.toString()
+  // }
+  //
+  // startClicked = () => {
+  //   if (this.state.intervalId === 0) {
+  //     return this.startTimer()
+  //   } else {
+  //     return this.pauseTimer()
+  //   }
+  // }
 
   // spacebar = (event) => {
   //   console.log('spacebar hit');
@@ -85,50 +83,44 @@ export default class PlaysContainer extends Component {
   //   }
   // }
 
-  startTimer = () => {
-    const intervalId = setInterval(this.decrimentTimer, 1000)
-    this.setState({ intervalId })
-  }
-
-  pauseTimer = () => {
-    clearInterval(this.state.intervalId)
-    this.setState({
-      intervalId: 0
-    })
-  }
-
-  decrimentTimer = () => {
-    let minutes = this.state.minutes
-    let seconds
-
-    if (this.state.seconds === 0) {
-      if (this.state.minutes === 0) {
-        clearInterval(this.state.intervalId)
-        minutes = 0
-        seconds = 0
-        this.resetTimer()
-      } else {
-        minutes = this.state.minutes - 1
-        seconds = 59
-      }
-    } else {
-      seconds = this.state.seconds - 1
-    }
-    this.setState({ minutes, seconds})
-  }
-
-  resetTimer = () => {
-    this.setState({
-      intervalId: 0,
-      minutes: 20,
-      seconds: 0
-    })
-  }
-
-  currentPlay = (playObj) => {
-    this.setState(currentState => ({
-      currentPlays: [playObj, ...currentState.currentPlays]
-    }), () => console.log(this.state.currentPlays, "state currentplays"))
-  }
+  // startTimer = () => {
+  //   const intervalId = setInterval(this.decrimentTimer, 1000)
+  //   this.setState({ intervalId })
+  // }
+  //
+  // pauseTimer = () => {
+  //   clearInterval(this.state.intervalId)
+  //   this.setState({
+  //     intervalId: 0
+  //   })
+  // }
+  //
+  // decrimentTimer = () => {
+  //   let minutes = this.state.minutes
+  //   let seconds
+  //
+  //   if (this.state.seconds === 0) {
+  //     if (this.state.minutes === 0) {
+  //       clearInterval(this.state.intervalId)
+  //       minutes = 0
+  //       seconds = 0
+  //       this.resetTimer()
+  //     } else {
+  //       minutes = this.state.minutes - 1
+  //       seconds = 59
+  //     }
+  //   } else {
+  //     seconds = this.state.seconds - 1
+  //   }
+  //   this.setState({ minutes, seconds})
+  // }
+  //
+  // resetTimer = () => {
+  //   this.setState({
+  //     intervalId: 0,
+  //     minutes: 20,
+  //     seconds: 0
+  //   })
+  // }
 
 } //end of class

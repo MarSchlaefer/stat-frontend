@@ -18,6 +18,7 @@ export default class StatsContainer extends Component {
     if (this.props.team1) {
       return <React.Fragment>
         <GameDetails
+          changePeriod={this.props.changePeriod}
           gameDetails={this.props.gameDetails}
           team1="team1"
           />
@@ -32,6 +33,7 @@ export default class StatsContainer extends Component {
           team1="team1"
           />
         <TeamStats
+          location="admin"
           gameDetails={this.props.gameDetails}
           team1="team1"
           />
@@ -40,6 +42,8 @@ export default class StatsContainer extends Component {
     if (this.props.team2) {
       return <React.Fragment>
         <GameDetails
+          resetTimer={this.props.resetTimer}
+          changePeriod={this.props.changePeriod}
           gameDetails={this.props.gameDetails}
           team2="team2"
           />
@@ -54,6 +58,7 @@ export default class StatsContainer extends Component {
           team2="team2"
           />
         <TeamStats
+          location="admin"
           gameDetails={this.props.gameDetails}
           team2="team2"
           />

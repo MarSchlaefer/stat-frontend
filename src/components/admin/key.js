@@ -19,9 +19,17 @@ export default class Key extends Component {
       return <div className="key" onClick={() => this.props.handleNumberClick(this.props.playerObj.id)}>
         <p>{this.props.playerObj.number}</p>
       </div>
-    } else {
+    } else if (this.props.handleResultClick){
       return <div className="key" onClick={() => this.props.handleResultClick(this.props.result)}>
         <p>{this.props.result}</p>
+      </div>
+    } else if (this.props.keyName === "New Period"){
+      return <div className="key" onClick={this.props.changePeriod}>
+        <p>{this.props.keyName}</p>
+      </div>
+    } else if (this.props.keyName === "Reset Timer"){
+      return <div className="key" onClick={this.props.resetTimer}>
+        <p>{this.props.keyName}</p>
       </div>
     }
   }

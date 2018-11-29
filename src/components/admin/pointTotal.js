@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class PointTotal extends Component {
   render() {
     return(
-      <div className="points">
+      <div className={this.props.location === "client" ? "points-client" : "points-admin"}>
         {this.renderPoints()}
       </div>
     )

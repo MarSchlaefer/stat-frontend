@@ -6,7 +6,7 @@ export default class Admin extends Component {
   constructor() {
     super()
     this.state = {
-      possession: "H"
+
     }
   }
 
@@ -15,37 +15,33 @@ export default class Admin extends Component {
       <React.Fragment>
         <StatsContainer
           gameDetails={this.props.gameDetails}
-          team1='team1' 
-          possession={this.state.possession}
-          changePossession={this.changePossession}
+          team1='team1'
+          possession={this.props.possession}
+          changePeriod={this.props.changePeriod}
+          changePossession={this.props.changePossession}
           />
         <PlaysContainer
+          period={this.props.period}
+          minutes={this.props.minutes}
+          seconds={this.props.seconds}
+          startClicked={this.props.startClicked}
           gameDetails={this.props.gameDetails}
-          possession={this.state.possession}
+          possession={this.props.possession}
           editGameDetails={this.props.editGameDetails}
-          changePossession={this.changePossession}
+          changePossession={this.props.changePossession}
+          currentPlay={this.props.currentPlay}
+          currentPlays={this.props.currentPlays}
           />
         <StatsContainer
+          resetTimer={this.props.resetTimer}
           gameDetails={this.props.gameDetails}
           team2='team2'
-          possession={this.state.possession}
-          changePossession={this.changePossession}
+          possession={this.props.possession}
+          changePeriod={this.props.changePeriod}
+          changePossession={this.props.changePossession}
           />
       </React.Fragment>
     )
-  }
-
-  changePossession = () => {
-    console.log("in change click");
-    if (this.state.possession === "H") {
-      this.setState({
-        possession: "A"
-      })
-    } else {
-      this.setState({
-        possession: "H"
-      })
-    }
   }
 
 } //end of class

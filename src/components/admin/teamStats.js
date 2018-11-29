@@ -5,12 +5,11 @@ export default class TeamStats extends Component{
 
   render() {
     return(
-      <div className="team-container">
-        <div className="team-title">
-          <p>team</p>
-          <p>totals</p>
+      <div className={this.props.location === "client" ? "team-container-client" : "team-container-admin"}>
+        <div className={this.props.location === "client" ? "team-title-client" : "team-title-admin"}>
+          <p>team totals</p>
         </div>
-        <table className="team-table">
+        <table className={this.props.location === "client" ? "team-table-client" : "team-table-admin"}>
           <tbody>
             <tr>
               <th>TP</th>
@@ -27,6 +26,7 @@ export default class TeamStats extends Component{
             {this.makeRow()}
           </tbody>
         </table>
+        <p>Coaches</p>
         <div className="team-coaches">
           {this.makeCoaches()}
         </div>
@@ -55,11 +55,11 @@ export default class TeamStats extends Component{
   makeCoaches = () => {
     if (this.props.gameDetails.length > 0 && this.props.team1) {
       return this.props.gameDetails[0].teams[0].coaches.map(coach => {
-        return <p>{coach.name} - {coach.title}</p>
+        return <div>{coach.name} - {coach.title}</div>
       })
     } else if (this.props.gameDetails.length > 0 && this.props.team2) {
       return this.props.gameDetails[0].teams[1].coaches.map(coach => {
-        return <p>{coach.name} - {coach.title}</p>
+        return <div>{coach.name} - {coach.title}</div>
       })
     } else {
       return <p>No coaches</p>

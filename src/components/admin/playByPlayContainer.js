@@ -9,24 +9,23 @@ export default class PlayByPlayContainer extends Component{
         <div className="play-title">
           <h3>Plays</h3>
         </div>
-        <table className="play">
-          <tbody>
-            <tr>
-              <th>Time</th>
-              <th>Play</th>
-            </tr>
-            {this.makePlay()}
-          </tbody>
-        </table>
+        <div className="scrolling-table">
+          <table className="play">
+            <tbody>
+              <tr>
+                <th>Time</th>
+                <th>Play</th>
+              </tr>
+              {this.makePlay()}
+            </tbody>
+          </table>
+        </div>
       </div>
     )
   }
 
   makePlay = () => {
     if (this.props.currentPlays.length > 0 && this.props.gameDetails.length > 0) {
-      // let sortedPlays = this.props.currentPlay.sort((a, b) => {
-      //   return b.id - a.id
-      // })
       return this.props.currentPlays.map(play => {
         return <tr>
           <Play
