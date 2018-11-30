@@ -30,17 +30,22 @@ export default class DetailsContainer extends Component {
             <TeamStats
               location="client"
               gameDetails={this.props.gameDetails}
+              changedPlayers={this.props.changedPlayers}
               team1="team1"
               />
             <TeamStats
               location="client"
               gameDetails={this.props.gameDetails}
+              changedPlayers={this.props.changedPlayers}
               team2="team2"
               />
           </div>
         </div>
         <div className="top-players">
-          <TopPlayerContainer gameDetails={this.props.gameDetails}/>
+          <TopPlayerContainer
+            changedPlayers={this.props.changedPlayers}
+            gameDetails={this.props.gameDetails}
+            />
         </div>
       </React.Fragment>
     )

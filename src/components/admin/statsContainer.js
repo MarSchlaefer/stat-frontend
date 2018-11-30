@@ -35,6 +35,7 @@ export default class StatsContainer extends Component {
         <TeamStats
           location="admin"
           gameDetails={this.props.gameDetails}
+          changedPlayers={this.props.changedPlayers}
           team1="team1"
           />
       </React.Fragment>
@@ -60,6 +61,7 @@ export default class StatsContainer extends Component {
         <TeamStats
           location="admin"
           gameDetails={this.props.gameDetails}
+          changedPlayers={this.props.changedPlayers}
           team2="team2"
           />
       </React.Fragment>

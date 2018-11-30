@@ -12,7 +12,7 @@ class App extends Component {
     super()
     this.state = {
       game: [],
-      currGame: null,
+      changedPlayers: [],
       signIn: "",
       keyPress: "",
       currentPlays: [],
@@ -35,8 +35,12 @@ class App extends Component {
     return (
       <div className="App">
         <ActionCable
+          channel={{ channel: 'PlayersChannel' }}
+          onReceived={this.handleReceivedPlayer}
+          />
+        <ActionCable
           channel={{ channel: 'PlaysChannel' }}
-          onReceived={this.handleReceivedGame}
+          onReceived={this.handleReceivedPlay}
           />
         {this.renderContent(minutes, seconds)}
       </div>
@@ -59,6 +63,7 @@ class App extends Component {
           currentPlays={this.state.currentPlays}
           changePossession={this.changePossession}
           changePeriod={this.changePeriod}
+          changedPlayers={this.state.changedPlayers}
           />
       </div>
     } else if (this.state.signIn === "client"){
@@ -70,6 +75,7 @@ class App extends Component {
           seconds={seconds}
           gameDetails={this.state.game}
           currentPlays={this.state.cablePlays}
+          changedPlayers={this.state.changedPlayers}
           />
       </div>
     } else {
@@ -79,16 +85,50 @@ class App extends Component {
     }
   }
 
-  handleReceivedGame = (response) => {
-    const play = this.parseResponse(response)
+  handleReceivedPlay = (response) => {
+    const play = this.parsePlayResponse(response)
     // debugger
     this.setState(currentState => ({
       cablePlays: [play, ...currentState.cablePlays]
     }))
   }
 
-  parseResponse = (response) => {
+  handleReceivedPlayer = (response) => {
+    const player = this.parsePlayerResponse(response)
+    const ids = this.state.changedPlayers.map(element => {
+      return element.id
+      }
+    )
+    const players = this.searchChangedPlayers(ids, player)
+    // debugger
+    this.setState({
+      changedPlayers: players
+    }, () => console.log(this.state.changedPlayers, "state changed players"))
+  }
+
+  searchChangedPlayers = (ids, player) => {
+    if (ids.includes(player.id)) {
+      return this.state.changedPlayers.map(element => {
+        if (element.id === player.id) {
+          return player
+        } else {
+          return element
+        }
+      })
+    } else {
+      let newPlayers = this.state.changedPlayers.slice()
+      newPlayers.unshift(player)
+      return newPlayers
+    }
+  }
+
+
+  parsePlayResponse = (response) => {
     return response.play
+  }
+
+  parsePlayerResponse = (response) => {
+    return response.player
   }
 
 

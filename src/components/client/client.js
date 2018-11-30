@@ -20,6 +20,7 @@ export default class Client extends Component {
           seconds={this.props.seconds}
           gameDetails={this.props.gameDetails}
           currentPlays={this.props.currentPlays}
+          changedPlayers={this.props.changedPlayers}
           />
       </React.Fragment>
     }

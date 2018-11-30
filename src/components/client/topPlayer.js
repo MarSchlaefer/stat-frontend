@@ -5,11 +5,11 @@ export default class TopPlayer extends Component {
     return (
       <div className="player-card">
         <div className="player-image">
-          <img src={this.props.player.img} alt=""/>
+          {this.props.player ? <img src={this.props.player.img} alt=""/> : <img src='https://cateringopmaat.nl/wp-content/uploads/2017/08/blank-profile-picture-973460_1280.png' alt=''/>}
         </div>
         <div className="player-details">
-          <p>{this.props.player.name}</p>
-          <p>{this.props.stat}</p>
+          <p>{this.props.player ? this.props.player.name : "No player"}</p>
+          <p>{this.props.stat ? this.props.stat : "No stats"}</p>
         </div>
       </div>
     )

@@ -12,7 +12,7 @@ export default class LogoContainer extends Component {
           />
         <PointTotal
           location="client"
-          team1={this.props.gameDetails[0].teams[0]}
+          team1={this.props.changedPlayers.length > 0 ? this.props.changedPlayers.filter(player => player.team_id === 1) : null}
           />
         <Timer
           minutes={this.props.minutes}
@@ -23,7 +23,7 @@ export default class LogoContainer extends Component {
           />
         <PointTotal
           location="client"
-          team2={this.props.gameDetails[0].teams[1]}
+          team2={this.props.changedPlayers.length > 0 ? this.props.changedPlayers.filter(player => player.team_id === 2) : null}
           />
         <Logo
           team2={this.props.gameDetails[0].teams[1]}

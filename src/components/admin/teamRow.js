@@ -21,10 +21,10 @@ export default class TeamRow extends Component {
   pointTotal = () => {
     let pointTotal = 0
     if (this.props.team1) {
-      this.props.team1.players.forEach(player => pointTotal += player.tp)
+      this.props.team1.forEach(player => pointTotal += player.tp)
       return pointTotal
     } else if (this.props.team2) {
-      this.props.team2.players.forEach(player => pointTotal += player.tp)
+      this.props.team2.forEach(player => pointTotal += player.tp)
       return pointTotal
     } else {
       return <h1>No team selected</h1>
@@ -34,10 +34,10 @@ export default class TeamRow extends Component {
   fgTotal = () => {
     let fgTotal = 0
     if (this.props.team1) {
-      this.props.team1.players.forEach(player => fgTotal += player.fgm)
+      this.props.team1.forEach(player => fgTotal += player.fgm)
       return fgTotal
     } else if (this.props.team2) {
-      this.props.team2.players.forEach(player => fgTotal += player.fgm)
+      this.props.team2.forEach(player => fgTotal += player.fgm)
       return fgTotal
     } else {
       return <h1>No team selected</h1>
@@ -47,11 +47,11 @@ export default class TeamRow extends Component {
   fgPercentage = () => {
     let fgAttempts = 0
     if (this.props.team1) {
-      this.props.team1.players.forEach(player => fgAttempts += player.fga)
-      return ((this.fgTotal() / fgAttempts) * 100)
+      this.props.team1.forEach(player => fgAttempts += player.fga)
+      return ((this.fgTotal() / fgAttempts) * 100).toFixed(2)
     } else if (this.props.team2) {
-      this.props.team2.players.forEach(player => fgAttempts += player.fga)
-      return ((this.fgTotal() / fgAttempts) * 100)
+      this.props.team2.forEach(player => fgAttempts += player.fga)
+      return ((this.fgTotal() / fgAttempts) * 100).toFixed(2)
     } else {
       return <h1>No team selected</h1>
     }
@@ -60,10 +60,10 @@ export default class TeamRow extends Component {
   ygTotal = () => {
     let ygTotal = 0
     if (this.props.team1) {
-      this.props.team1.players.forEach(player => ygTotal += player.ygm)
+      this.props.team1.forEach(player => ygTotal += player.ygm)
       return ygTotal
     } else if (this.props.team2) {
-      this.props.team2.players.forEach(player => ygTotal += player.ygm)
+      this.props.team2.forEach(player => ygTotal += player.ygm)
       return ygTotal
     } else {
       return <h1>No team selected</h1>
@@ -73,11 +73,11 @@ export default class TeamRow extends Component {
   ygPercentage = () => {
     let ygAttempts = 0
     if (this.props.team1) {
-      this.props.team1.players.forEach(player => ygAttempts += player.yga)
-      return ((this.ygTotal() / ygAttempts) * 100)
+      this.props.team1.forEach(player => ygAttempts += player.yga)
+      return ((this.ygTotal() / ygAttempts) * 100).toFixed(2)
     } else if (this.props.team2) {
-      this.props.team2.players.forEach(player => ygAttempts += player.yga)
-      return ((this.ygTotal() / ygAttempts) * 100)
+      this.props.team2.forEach(player => ygAttempts += player.yga)
+      return ((this.ygTotal() / ygAttempts) * 100).toFixed(2)
     } else {
       return <h1>No team selected</h1>
     }
@@ -86,10 +86,10 @@ export default class TeamRow extends Component {
   ftTotal = () => {
     let ftTotal = 0
     if (this.props.team1) {
-      this.props.team1.players.forEach(player => ftTotal += player.fta)
+      this.props.team1.forEach(player => ftTotal += player.fta)
       return ftTotal
     } else if (this.props.team2) {
-      this.props.team2.players.forEach(player => ftTotal += player.fta)
+      this.props.team2.forEach(player => ftTotal += player.fta)
       return ftTotal
     } else {
       return <h1>No team selected</h1>
@@ -99,11 +99,11 @@ export default class TeamRow extends Component {
   ftPercentage = () => {
     let ftAttempts = 0
     if (this.props.team1) {
-      this.props.team1.players.forEach(player => ftAttempts += player.fta)
-      return ((this.ftTotal() / ftAttempts) * 100)
+      this.props.team1.forEach(player => ftAttempts += player.fta)
+      return ((this.ftTotal() / ftAttempts) * 100).toFixed(2)
     } else if (this.props.team2) {
-      this.props.team2.players.forEach(player => ftAttempts += player.fta)
-      return ((this.ftTotal() / ftAttempts) * 100)
+      this.props.team2.forEach(player => ftAttempts += player.fta)
+      return ((this.ftTotal() / ftAttempts) * 100).toFixed(2)
     } else {
       return <h1>No team selected</h1>
     }
@@ -112,10 +112,10 @@ export default class TeamRow extends Component {
   pfTotal = () => {
     let pfTotal = 0
     if (this.props.team1) {
-      this.props.team1.players.forEach(player => pfTotal += player.pf)
+      this.props.team1.forEach(player => pfTotal += player.pf)
       return pfTotal
     } else if (this.props.team2) {
-      this.props.team2.players.forEach(player => pfTotal += player.pf)
+      this.props.team2.forEach(player => pfTotal += player.pf)
       return pfTotal
     } else {
       return <h1>No team selected</h1>
@@ -125,10 +125,10 @@ export default class TeamRow extends Component {
   rbTotal = () => {
     let rebTotal = 0
     if (this.props.team1) {
-      this.props.team1.players.forEach(player => rebTotal += player.reb)
+      this.props.team1.forEach(player => rebTotal += player.reb)
       return rebTotal
     } else if (this.props.team2) {
-      this.props.team2.players.forEach(player => rebTotal += player.reb)
+      this.props.team2.forEach(player => rebTotal += player.reb)
       return rebTotal
     } else {
       return <h1>No team selected</h1>
@@ -138,10 +138,10 @@ export default class TeamRow extends Component {
   asTotal = () => {
     let asTotal = 0
     if (this.props.team1) {
-      this.props.team1.players.forEach(player => asTotal += player.ast)
+      this.props.team1.forEach(player => asTotal += player.ast)
       return asTotal
     } else if (this.props.team2) {
-      this.props.team2.players.forEach(player => asTotal += player.ast)
+      this.props.team2.forEach(player => asTotal += player.ast)
       return asTotal
     } else {
       return <h1>No team selected</h1>

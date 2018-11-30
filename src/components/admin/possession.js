@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { basketball } from '../../images/basketball.svg'
 
 export default class Possession extends Component{
 
@@ -13,8 +14,11 @@ export default class Possession extends Component{
   renderContent = () => {
     if (this.props.gameDetails.length > 0 && this.props.team1) {
       return <div className={"possession-1" + (this.props.possession === "H" ? " active" : " inactive")} onClick={this.props.changePossession}>
-        <p>Home</p>
-        <p>{this.props.gameDetails[0].teams[0].name}</p>
+        <div className="possession-team">
+          <p>Home</p>
+          <p>{this.props.gameDetails[0].teams[0].name}</p>
+        </div>
+        <img src={ basketball } alt=''/>
       </div>
     } else if (this.props.gameDetails.length > 0 && this.props.team2) {
       return <div className={"possession-2" + (this.props.possession === "A" ? " active" : " inactive")} onClick={this.props.changePossession}>

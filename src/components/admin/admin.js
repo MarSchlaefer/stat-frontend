@@ -13,6 +13,7 @@ export default class Admin extends Component {
           possession={this.props.possession}
           changePeriod={this.props.changePeriod}
           changePossession={this.props.changePossession}
+          changedPlayers={this.props.changedPlayers}
           />
         <PlaysContainer
           period={this.props.period}
@@ -33,6 +34,7 @@ export default class Admin extends Component {
           possession={this.props.possession}
           changePeriod={this.props.changePeriod}
           changePossession={this.props.changePossession}
+          changedPlayers={this.props.changedPlayers}
           />
       </React.Fragment>
     )
