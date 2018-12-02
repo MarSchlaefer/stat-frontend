@@ -5,11 +5,12 @@ import PlaysContainer from './playsContainer'
 export default class Admin extends Component {
 
   render() {
+    console.log(this.sortTeams()[0], "this is team 1")
     return (
       <React.Fragment>
         <StatsContainer
           gameDetails={this.props.gameDetails}
-          team1='team1'
+          team1={this.sortTeams()[0]}
           possession={this.props.possession}
           changePeriod={this.props.changePeriod}
           changePossession={this.props.changePossession}
@@ -30,7 +31,7 @@ export default class Admin extends Component {
         <StatsContainer
           resetTimer={this.props.resetTimer}
           gameDetails={this.props.gameDetails}
-          team2='team2'
+          team2={this.sortTeams()[1]}
           possession={this.props.possession}
           changePeriod={this.props.changePeriod}
           changePossession={this.props.changePossession}
@@ -38,6 +39,11 @@ export default class Admin extends Component {
           />
       </React.Fragment>
     )
+  }
+
+  sortTeams = () => {
+    const sortedTeams = this.props.gameDetails[0].teams.sort((a, b) => a.id - b.id)
+    return sortedTeams
   }
 
 } //end of class

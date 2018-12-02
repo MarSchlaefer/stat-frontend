@@ -35,14 +35,14 @@ export default class TimerContainer extends Component{
     if (this.props.gameDetails.length > 0) {
       return <React.Fragment>
         <FoulTotal team1={this.props.gameDetails[0].teams[0]}/>
-        <PointTotal team1={this.props.gameDetails[0].teams[0].players}/>
+        <PointTotal location="admin" team1={this.props.gameDetails[0].teams[0]}/>
         <Timer
           period={this.props.period}
           location="admin"
           minutes={minutes}
           seconds={seconds}
           />
-        <PointTotal location="admin" team2={this.props.gameDetails[0].teams[1].players}/>
+        <PointTotal location="admin" team2={this.props.gameDetails[0].teams[1]}/>
         <FoulTotal team2={this.props.gameDetails[0].teams[1]}/>
       </React.Fragment>
     }

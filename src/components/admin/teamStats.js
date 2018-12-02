@@ -35,40 +35,15 @@ export default class TeamStats extends Component{
   }
 
   makeRow = () => {
-    if (this.props.changedPlayers.length > 0) {
-      console.log(this.props.changedPlayers, "changed players")
-      const team1Players =  this.props.changedPlayers.filter(player => player.team_id === 1)
-      const team2Players =  this.props.changedPlayers.filter(player => player.team_id === 2)
-      // debugger
-      if (this.props.team1) {
-        return <tr><TeamRow
-          team1={team1Players}/>
-      </tr>
-      } else {
-        return <tr><TeamRow
-          team2={team2Players}/>
-        </tr>
-      }
-    } else if (this.props.gameDetails.length > 0) {
-      const team1Players =  this.props.gameDetails[0].teams[0].players
-      const team2Players =  this.props.gameDetails[0].teams[1].players
-      if (this.props.team1) {
-        return <tr><TeamRow
-          team1={team1Players}/>
-      </tr>
-      } else {
-        return <tr><TeamRow
-          team2={team2Players}/>
-        </tr>
-      }
+    if (this.props.team1) {
+      return <tr><TeamRow
+        team1={this.props.team1}/>
+    </tr>
     } else {
-      return <tr>
-        <td>
-          No stats yet.
-        </td>
+      return <tr><TeamRow
+        team2={this.props.team2}/>
       </tr>
     }
-
   }
 
   makeCoaches = () => {

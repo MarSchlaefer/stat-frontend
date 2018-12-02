@@ -8,11 +8,11 @@ export default class LogoContainer extends Component {
     return(
       <React.Fragment>
         <Logo
-          team1={this.props.gameDetails[0].teams[0]}
+          team1={this.props.teamsData[0]}
           />
         <PointTotal
           location="client"
-          team1={this.props.changedPlayers.length > 0 ? this.props.changedPlayers.filter(player => player.team_id === 1) : null}
+          team1={this.props.teamsData[0]}
           />
         <Timer
           minutes={this.props.minutes}
@@ -23,10 +23,10 @@ export default class LogoContainer extends Component {
           />
         <PointTotal
           location="client"
-          team2={this.props.changedPlayers.length > 0 ? this.props.changedPlayers.filter(player => player.team_id === 2) : null}
+          team2={this.props.teamsData[1]}
           />
         <Logo
-          team2={this.props.gameDetails[0].teams[1]}
+          team2={this.props.teamsData[1]}
           />
       </React.Fragment>
     )

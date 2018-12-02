@@ -25,9 +25,7 @@ export default class PlayByPlayContainer extends Component{
   }
 
   makePlay = () => {
-    console.log(this.props.currentPlays, "current plays")
-    console.log(this.props.gameDetails, "current game details")
-    if (this.props.currentPlays.length > 0 && this.props.gameDetails.length > 0) {
+    if (this.props.currentPlays.length > 0) {
       return this.props.currentPlays.map(play => {
         return <tr>
           <Play

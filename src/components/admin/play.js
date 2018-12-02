@@ -18,19 +18,9 @@ export default class Play extends Component {
     )
   }
 
-  // renderPlay = () => {
-  //   // debugger
-  //   return <React.Fragment>
-  //     <td>{this.props.play.timer}</td>
-  //     <td>{this.formatPlay()}</td>
-  //   </React.Fragment>
-  // }
-
   formatPlay = () => {
-    console.log("formatting play")
-    // debugger
+    // console.log("formatting play")
     const player = this.findPlayer(this.props.play.player_id)
-    // debugger
     if (player) {
       return `${this.props.play.action} - #${player.number} - ${player.name} is ${this.props.play.result}.`
     } else {

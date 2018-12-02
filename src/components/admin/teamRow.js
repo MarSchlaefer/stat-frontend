@@ -19,130 +19,100 @@ export default class TeamRow extends Component {
   }
 
   pointTotal = () => {
-    let pointTotal = 0
     if (this.props.team1) {
-      this.props.team1.forEach(player => pointTotal += player.tp)
-      return pointTotal
+      return this.props.team1.tp
     } else if (this.props.team2) {
-      this.props.team2.forEach(player => pointTotal += player.tp)
-      return pointTotal
+      return this.props.team2.tp
     } else {
       return <h1>No team selected</h1>
     }
   }
 
   fgTotal = () => {
-    let fgTotal = 0
     if (this.props.team1) {
-      this.props.team1.forEach(player => fgTotal += player.fgm)
-      return fgTotal
+      return this.props.team1.fga
     } else if (this.props.team2) {
-      this.props.team2.forEach(player => fgTotal += player.fgm)
-      return fgTotal
+      return this.props.team2.fga
     } else {
       return <h1>No team selected</h1>
     }
   }
 
   fgPercentage = () => {
-    let fgAttempts = 0
     if (this.props.team1) {
-      this.props.team1.forEach(player => fgAttempts += player.fga)
-      return ((this.fgTotal() / fgAttempts) * 100).toFixed(2)
+      return this.props.team1.fgp
     } else if (this.props.team2) {
-      this.props.team2.forEach(player => fgAttempts += player.fga)
-      return ((this.fgTotal() / fgAttempts) * 100).toFixed(2)
+      return this.props.team2.fgp
     } else {
       return <h1>No team selected</h1>
     }
   }
 
   ygTotal = () => {
-    let ygTotal = 0
     if (this.props.team1) {
-      this.props.team1.forEach(player => ygTotal += player.ygm)
-      return ygTotal
+      return this.props.team1.yga
     } else if (this.props.team2) {
-      this.props.team2.forEach(player => ygTotal += player.ygm)
-      return ygTotal
+      return this.props.team2.yga
     } else {
       return <h1>No team selected</h1>
     }
   }
 
   ygPercentage = () => {
-    let ygAttempts = 0
     if (this.props.team1) {
-      this.props.team1.forEach(player => ygAttempts += player.yga)
-      return ((this.ygTotal() / ygAttempts) * 100).toFixed(2)
+      return this.props.team1.ygp
     } else if (this.props.team2) {
-      this.props.team2.forEach(player => ygAttempts += player.yga)
-      return ((this.ygTotal() / ygAttempts) * 100).toFixed(2)
+      return this.props.team2.ygp
     } else {
       return <h1>No team selected</h1>
     }
   }
 
   ftTotal = () => {
-    let ftTotal = 0
     if (this.props.team1) {
-      this.props.team1.forEach(player => ftTotal += player.fta)
-      return ftTotal
+      return this.props.team1.fta
     } else if (this.props.team2) {
-      this.props.team2.forEach(player => ftTotal += player.fta)
-      return ftTotal
+      return this.props.team2.fta
     } else {
       return <h1>No team selected</h1>
     }
   }
 
   ftPercentage = () => {
-    let ftAttempts = 0
     if (this.props.team1) {
-      this.props.team1.forEach(player => ftAttempts += player.fta)
-      return ((this.ftTotal() / ftAttempts) * 100).toFixed(2)
+      return this.props.team1.ftp
     } else if (this.props.team2) {
-      this.props.team2.forEach(player => ftAttempts += player.fta)
-      return ((this.ftTotal() / ftAttempts) * 100).toFixed(2)
+      return this.props.team2.ftp
     } else {
       return <h1>No team selected</h1>
     }
   }
 
   pfTotal = () => {
-    let pfTotal = 0
     if (this.props.team1) {
-      this.props.team1.forEach(player => pfTotal += player.pf)
-      return pfTotal
+      return this.props.team1.pf
     } else if (this.props.team2) {
-      this.props.team2.forEach(player => pfTotal += player.pf)
-      return pfTotal
+      return this.props.team2.pf
     } else {
       return <h1>No team selected</h1>
     }
   }
 
   rbTotal = () => {
-    let rebTotal = 0
     if (this.props.team1) {
-      this.props.team1.forEach(player => rebTotal += player.reb)
-      return rebTotal
+      return this.props.team1.reb
     } else if (this.props.team2) {
-      this.props.team2.forEach(player => rebTotal += player.reb)
-      return rebTotal
+      return this.props.team2.reb
     } else {
       return <h1>No team selected</h1>
     }
   }
 
   asTotal = () => {
-    let asTotal = 0
     if (this.props.team1) {
-      this.props.team1.forEach(player => asTotal += player.ast)
-      return asTotal
+      return this.props.team1.ast
     } else if (this.props.team2) {
-      this.props.team2.forEach(player => asTotal += player.ast)
-      return asTotal
+      return this.props.team2.ast
     } else {
       return <h1>No team selected</h1>
     }

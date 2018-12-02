@@ -15,7 +15,7 @@ export default class TopPlayerContainer extends Component {
   }
 
   renderTopPoints = () => {
-    const players = this.props.changedPlayers.filter(player => player.tp > 0)
+    const players = this.props.playersData
     const sortedPlayers = players.sort((a, b) => {
       return b.tp - a.tp
     })
@@ -23,7 +23,7 @@ export default class TopPlayerContainer extends Component {
   }
 
   renderTopRebounds = () => {
-    const players = this.props.changedPlayers.filter(player => player.reb > 0)
+    const players = this.props.playersData
     const sortedPlayers = players.sort((a, b) => {
       return b.reb - a.reb
     })
@@ -31,7 +31,7 @@ export default class TopPlayerContainer extends Component {
   }
 
   renderTopThree = () => {
-    const players = this.props.changedPlayers.filter(player => player.ygm > 0)
+    const players = this.props.playersData
     const sortedPlayers = players.sort((a, b) => {
       return b.ygm - a.ygm
     })
@@ -39,7 +39,7 @@ export default class TopPlayerContainer extends Component {
   }
 
   renderTopBlocks = () => {
-    const players = this.props.changedPlayers.filter(player => player.blk > 0)
+    const players = this.props.playersData
     const sortedPlayers = players.sort((a, b) => {
       return b.blk - a.blk
     })

@@ -12,11 +12,9 @@ class App extends Component {
     super()
     this.state = {
       game: [],
-      changedPlayers: [],
       signIn: "",
       keyPress: "",
       currentPlays: [],
-      cablePlays: [],
       possession: "H",
       period: "Period 1",
       intervalId: 0,
@@ -34,14 +32,6 @@ class App extends Component {
     const seconds = this.formatNum(this.state.seconds)
     return (
       <div className="App">
-        <ActionCable
-          channel={{ channel: 'PlayersChannel' }}
-          onReceived={this.handleReceivedPlayer}
-          />
-        <ActionCable
-          channel={{ channel: 'PlaysChannel' }}
-          onReceived={this.handleReceivedPlay}
-          />
         {this.renderContent(minutes, seconds)}
       </div>
     );
@@ -83,52 +73,6 @@ class App extends Component {
         <SignIn handleSignIn={this.handleSignIn}/>
       </div>
     }
-  }
-
-  handleReceivedPlay = (response) => {
-    const play = this.parsePlayResponse(response)
-    // debugger
-    this.setState(currentState => ({
-      cablePlays: [play, ...currentState.cablePlays]
-    }))
-  }
-
-  handleReceivedPlayer = (response) => {
-    const player = this.parsePlayerResponse(response)
-    const ids = this.state.changedPlayers.map(element => {
-      return element.id
-      }
-    )
-    const players = this.searchChangedPlayers(ids, player)
-    // debugger
-    this.setState({
-      changedPlayers: players
-    }, () => console.log(this.state.changedPlayers, "state changed players"))
-  }
-
-  searchChangedPlayers = (ids, player) => {
-    if (ids.includes(player.id)) {
-      return this.state.changedPlayers.map(element => {
-        if (element.id === player.id) {
-          return player
-        } else {
-          return element
-        }
-      })
-    } else {
-      let newPlayers = this.state.changedPlayers.slice()
-      newPlayers.unshift(player)
-      return newPlayers
-    }
-  }
-
-
-  parsePlayResponse = (response) => {
-    return response.play
-  }
-
-  parsePlayerResponse = (response) => {
-    return response.player
   }
 
 

@@ -16,7 +16,7 @@ export default class Key extends Component {
         <p>{this.props.keyObj.key} - {this.props.keyObj.action}</p>
       </div>
     } else if (this.props.handleNumberClick) {
-      return <div className="key" onClick={() => this.props.handleNumberClick(this.props.playerObj.id)}>
+      return <div className="key" onClick={() => this.props.handleNumberClick(this.props.playerObj.id, this.props.playerObj.team_id)}>
         <p>{this.props.playerObj.number}</p>
       </div>
     } else if (this.props.handleResultClick){

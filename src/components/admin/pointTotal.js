@@ -20,20 +20,16 @@ export default class PointTotal extends Component {
         <h4>Away</h4>
         <p>{this.pointTotal()}</p>
       </React.Fragment>
-    } else {
+    } else { 
       return <p>0</p>
     }
   }
 
   pointTotal = () => {
-    let homePointTotal = 0
-    let awayPointTotal = 0
     if (this.props.team1) {
-      this.props.team1.forEach(player => homePointTotal += player.tp)
-      return homePointTotal
+      return this.props.team1.tp
     } else {
-      this.props.team2.forEach(player => awayPointTotal += player.tp)
-      return awayPointTotal
+      return this.props.team2.tp
     }
   }
 } //end of class

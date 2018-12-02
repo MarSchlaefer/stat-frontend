@@ -14,14 +14,16 @@ export default class GameContainer extends Component {
             seconds={this.props.seconds}
             period={this.props.period}
             possession={this.props.possession}
-            changedPlayers={this.props.changedPlayers}
+            playersData={this.props.playersData}
+            teamsData={this.props.teamsData}
             />
         </div>
         <div className="details-container">
           <DetailsContainer
             gameDetails={this.props.gameDetails}
-            currentPlays={this.props.currentPlays}
-            changedPlayers={this.props.changedPlayers}
+            playsData={this.props.playsData}
+            playersData={this.props.playersData}
+            teamsData={this.props.teamsData}
             />
         </div>
     </React.Fragment>
