@@ -24,6 +24,8 @@ export default class GameContainer extends Component {
             playsData={this.props.playsData}
             playersData={this.props.playersData}
             teamsData={this.props.teamsData}
+            showCharts={this.props.showCharts}
+            signOut={this.props.signOut}
             />
         </div>
     </React.Fragment>

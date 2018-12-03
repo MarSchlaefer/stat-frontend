@@ -30,6 +30,8 @@ export default class DetailsContainer extends Component {
         <div className="top-players">
           <TopPlayerContainer
             playersData={this.props.playersData}
+            showCharts={this.props.showCharts}
+            signOut={this.props.signOut}
             />
         </div>
       </React.Fragment>

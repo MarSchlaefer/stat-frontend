@@ -4,7 +4,7 @@ import Key from './key'
 export default class GameDetails extends Component{
 
   render() {
-    const keys = ["New Period", "Reset Timer"]
+    const keys = ["New Period", "Reset Timer", "Show Game Analysis", "Logout"]
     return(
       <div className="game-details">
         {this.renderContent(keys)}
@@ -33,7 +33,13 @@ export default class GameDetails extends Component{
 
   makeKeys = (keys) => {
     return keys.map(key => {
-      return <Key keyName={key} changePeriod={this.props.changePeriod} resetTimer={this.props.resetTimer}/>
+      return <Key
+        keyName={key}
+        changePeriod={this.props.changePeriod}
+        resetTimer={this.props.resetTimer}
+        showCharts={this.props.showCharts}
+        signOut={this.props.signOut}
+        />
     })
   }
 } //end of class

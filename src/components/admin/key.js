@@ -31,6 +31,14 @@ export default class Key extends Component {
       return <div className="key" onClick={this.props.resetTimer}>
         <p>{this.props.keyName}</p>
       </div>
+    } else if (this.props.keyName === "Show Game Analysis"){
+      return <div className="key" onClick={this.props.showCharts}>
+        <p>{this.props.keyName}</p>
+      </div>
+    } else if (this.props.keyName === "Logout"){
+      return <div className="key" onClick={this.props.signOut}>
+        <p>{this.props.keyName}</p>
+      </div>
     }
   }
 

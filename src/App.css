@@ -134,9 +134,13 @@
   border-radius: 3px;
 }
 
+.team-coaches-container {
+
+}
+
 .team-coaches {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   font-size: 1em;
@@ -311,7 +315,7 @@
   flex-direction: row;
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background: -webkit-linear-gradient(left,  #000000 0%,#54575c 33%,#54575c 66%,#000000 100%);
   justify-content: center;
   border-radius: 3px;
 }
@@ -398,6 +402,8 @@
 .player-card {
   display: flex;
   flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
   margin: 10px;
   border-radius: 3px;
 }
@@ -406,6 +412,10 @@
   height: 60px;
   width: 60px;
   border-radius: 3px;
+}
+
+.player-details {
+  margin-left: 10px;
 }
 
 table {
@@ -417,4 +427,74 @@ table {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+.sign-in {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(#0262B299, #0262B299), url(https://www.fantasycouch.com/wp-content/uploads/2017/01/nba-basketball.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: #0262B2; */
+}
+
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 33%;
+  width: 33%;
+  background-color: white;
+  border-radius: 3px;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+}
+
+.sign-in-container form {
+
+}
+
+.page-keys {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.page-key {
+  background-color: grey;
+  background-image: linear-gradient(#A9A9A9, lightgrey, #A9A9A9);
+  margin: 10px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  background-image: linear-gradient(#0262B299, #0262B299), url(https://www.fantasycouch.com/wp-content/uploads/2017/01/nba-basketball.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.charts {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 70%;
+  background-color: white;
+  margin: 5px;
+  padding: 10px;
+  align-items: center;
 }

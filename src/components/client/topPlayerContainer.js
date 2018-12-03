@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import TopPlayer from './topPlayer'
+import ChartKey from './chartKey'
+import SignOut from './signOut'
 
 export default class TopPlayerContainer extends Component {
   render() {
@@ -10,6 +12,15 @@ export default class TopPlayerContainer extends Component {
         {this.renderTopRebounds()}
         {this.renderTopThree()}
         {this.renderTopBlocks()}
+        <div className="page-keys">
+          <ChartKey
+            showCharts={this.props.showCharts}
+            location="client"
+            />
+          <SignOut
+            signOut={this.props.signOut}
+            />
+        </div>
       </React.Fragment>
     )
   }
@@ -45,5 +56,6 @@ export default class TopPlayerContainer extends Component {
     })
     return <TopPlayer player={sortedPlayers[0]} stat="Most Blocked Shots"/>
   }
+
 
 } //end of class

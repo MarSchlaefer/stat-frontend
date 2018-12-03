@@ -3,6 +3,7 @@ import './App.css';
 import SignIn from './components/signIn'
 import Client from './components/client/client'
 import Admin from './components/admin/admin'
+import Chart from './components/chart'
 import { ActionCable } from 'react-actioncable-provider';
 import { API_ROOT } from './constants/index';
 
@@ -13,6 +14,7 @@ class App extends Component {
     this.state = {
       game: [],
       signIn: "",
+      showCharts: false,
       keyPress: "",
       currentPlays: [],
       possession: "H",
@@ -38,7 +40,7 @@ class App extends Component {
   }
 
   renderContent = (minutes, seconds) => {
-    if (this.state.signIn === "admin") {
+    if (this.state.signIn === "admin" && !this.state.showCharts) {
       return <div className="employee">
         <Admin
           resetTimer={this.resetTimer}
@@ -54,9 +56,12 @@ class App extends Component {
           changePossession={this.changePossession}
           changePeriod={this.changePeriod}
           changedPlayers={this.state.changedPlayers}
+          showCharts={this.showCharts}
+          signOut={this.signOut}
+          handleKeyDown={this.handleKeyDown}
           />
       </div>
-    } else if (this.state.signIn === "client"){
+    } else if (this.state.signIn === "client" && !this.state.showCharts){
       return <div className="client">
         <Client
           period={this.state.period}
@@ -66,6 +71,15 @@ class App extends Component {
           gameDetails={this.state.game}
           currentPlays={this.state.cablePlays}
           changedPlayers={this.state.changedPlayers}
+          showCharts={this.showCharts}
+          signOut={this.signOut}
+          />
+      </div>
+    } else if (this.state.showCharts) {
+      return <div className="charts-page">
+        <Chart
+          gameDetails={this.state.game}
+          showCharts={this.showCharts}
           />
       </div>
     } else {
@@ -175,6 +189,40 @@ class App extends Component {
     }
   }
 
+  showCharts = () => {
+    console.log("show charts");
+    this.setState(currentState => ({
+      showCharts: !currentState.showCharts
+    }))
+  }
+
+  signOut = () => {
+    this.setState({
+      signIn: ""
+    })
+  }
+
+  handleKeyDown = (event) => {
+    switch (event.keyCode) {
+      case 32:
+      console.log("spacebar")
+      this.startClicked()
+      break;
+      case 72:
+      console.log("H")
+      this.setState({
+        possession: "H"
+      })
+      break;
+      case 86:
+      console.log("V")
+      this.setState({
+        possession: "A"
+      })
+      break;
+    }
+  }
+
   // editGameDetails = (teamIndex, id, json) => {
   //   this.setState(currentState => {
   //     const x = {game: currentState.game.map(game => {
@@ -214,13 +262,6 @@ class App extends Component {
   //     }
   //   })
   // })
-
-
-  // handleKeyPress = (event) => {
-  //   this.setState({
-  //     keyPress: event.keyCode
-  //   }, () => console.log(this.state.keyPress))
-  // }
 
 } // end of class
 

@@ -26,9 +26,11 @@ export default class TeamStats extends Component{
             {this.makeRow()}
           </tbody>
         </table>
-        <p>Coaches</p>
-        <div className="team-coaches">
-          {this.makeCoaches()}
+        <div className="team-coaches-container">
+          <p>Coaches</p>
+          <div className="team-coaches">
+            {this.makeCoaches()}
+          </div>
         </div>
       </div>
     )

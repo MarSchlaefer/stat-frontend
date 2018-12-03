@@ -24,13 +24,13 @@ export default class StatsContainer extends Component {
           />
         <Possession
           gameDetails={this.props.gameDetails}
-          team1="team1"
+          team1={this.props.team1}
           possession={this.props.possession}
           changePossession={this.props.changePossession}
           />
         <IndividualStats
           gameDetails={this.props.gameDetails}
-          team1="team1"
+          team1={this.props.team1}
           />
         <TeamStats
           location="admin"
@@ -44,22 +44,24 @@ export default class StatsContainer extends Component {
         <GameDetails
           resetTimer={this.props.resetTimer}
           changePeriod={this.props.changePeriod}
+          showCharts={this.props.showCharts}
+          signOut={this.props.signOut}
           gameDetails={this.props.gameDetails}
-          team2="team2"
+          team2={this.props.team2}
           />
         <Possession
           gameDetails={this.props.gameDetails}
-          team2="team2"
+          team2={this.props.team2}
           possession={this.props.possession}
           changePossession={this.props.changePossession}
           />
         <IndividualStats
           gameDetails={this.props.gameDetails}
-          team2="team2"
+          team2={this.props.team2}
           />
         <TeamStats
           location="admin"
-          team2={this.props.gameDetails[0].teams[1]}
+          team2={this.props.team2}
           gameDetails={this.props.gameDetails}
           />
       </React.Fragment>

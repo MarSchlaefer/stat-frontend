@@ -12,14 +12,20 @@ export default class SignIn extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={() => this.props.handleSignIn(this.state.usernameValue)}>
-          <label>
-            Sign In
+      <div className="sign-in">
+        <div className="sign-in-container">
+          <h1>Welcome to Stat-team</h1>
+          <br/>
+          <form onSubmit={() => this.props.handleSignIn(this.state.usernameValue)}>
+            <label>
+              Sign In
+            </label>
+            <br/>
             <input type="text" value={this.state.usernameValue} onChange={this.handleInput}/>
-          </label>
-          <input type="submit" value="Submit"/>
-        </form>
+            <br/>
+            <input type="submit" value="Submit"/>
+          </form>
+        </div>
       </div>
     );
   }

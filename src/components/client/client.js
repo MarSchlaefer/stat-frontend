@@ -51,6 +51,8 @@ export default class Client extends Component {
           playsData={this.state.playsData}
           playersData={this.state.playersData}
           teamsData={this.state.teamsData}
+          showCharts={this.props.showCharts}
+          signOut={this.props.signOut}
           />
       </React.Fragment>
     }
@@ -61,8 +63,9 @@ export default class Client extends Component {
     fetch('http://localhost:3000/teams')
     .then(response => response.json())
     .then(json => {
+      const teams = json.sort((a, b) => a.id - b.id)
       this.setState({
-        teamsData: json
+        teamsData: teams
       })
     })
   }

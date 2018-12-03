@@ -4,6 +4,10 @@ import PlaysContainer from './playsContainer'
 
 export default class Admin extends Component {
 
+  componentDidMount = () => {
+    document.addEventListener("keydown", this.props.handleKeyDown)
+  }
+
   render() {
     console.log(this.sortTeams()[0], "this is team 1")
     return (
@@ -36,6 +40,8 @@ export default class Admin extends Component {
           changePeriod={this.props.changePeriod}
           changePossession={this.props.changePossession}
           changedPlayers={this.props.changedPlayers}
+          showCharts={this.props.showCharts}
+          signOut={this.props.signOut}
           />
       </React.Fragment>
     )

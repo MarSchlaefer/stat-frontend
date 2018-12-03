@@ -31,4 +31,5 @@ export default class LogoContainer extends Component {
       </React.Fragment>
     )
   }
-}
+
+}//end of class
