@@ -19,7 +19,6 @@ export default class Play extends Component {
   }
 
   formatPlay = () => {
-    // console.log("formatting play")
     const player = this.findPlayer(this.props.play.player_id)
     if (player) {
       return `${this.props.play.action} - #${player.number} - ${player.name} is ${this.props.play.result}.`

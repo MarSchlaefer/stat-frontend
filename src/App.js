@@ -27,6 +27,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getGame()
+    this.getCurrentPlays()
   }
 
   render() {
@@ -96,6 +97,18 @@ class App extends Component {
     .then(game => {
       console.log(game)
       this.setState({ game })
+    })
+  }
+
+  getCurrentPlays = () => {
+    fetch(`http://localhost:3000/plays`)
+    .then(response => response.json())
+    .then(plays => {
+      let playArr = plays.slice()
+      let reversedPlays = playArr.reverse()
+      this.setState({
+        currentPlays: reversedPlays
+      })
     })
   }
 

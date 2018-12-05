@@ -110,14 +110,12 @@ export default class KeyContainer extends Component{
       this.props.currentPlay(playObj)
       this.postPlay(key)
       this.teamGood(this.state.currTeamId)
-      this.updatePercentage(this.state.currTeamId)
       this.patchGood(this.state.currPlayerId)
     } else if (key === "Miss"){
       console.log("clicked miss");
       this.props.currentPlay(playObj)
       this.postPlay(key)
       this.teamAttempt(this.state.currTeamId)
-      this.updatePercentage(this.state.currTeamId)
       this.patchAttempt(this.state.currPlayerId)
     } else {
       console.log("non-shot play");
@@ -590,73 +588,12 @@ export default class KeyContainer extends Component{
     })
   }
 
-  updatePercentage = (teamId) => {
-    let percentage
-    let attempt
-    let made
-
-    switch (this.state.currAction) {
-      case "J":
-        percentage = "fgp"
-        attempt = "fga"
-        made = "fgm"
-        break;
-      case "Y":
-        percentage = "ygp"
-        attempt = "yga"
-        made = "ygm"
-        break;
-      case "E":
-        percentage = "ftp"
-        attempt = "fta"
-        made = "ftm"
-        break;
-      case "L":
-        percentage = "fgp"
-        attempt = "fga"
-        made = "fgm"
-        break;
-      case "D":
-        percentage = "fgp"
-        attempt = "fga"
-        made = "fgm"
-        break;
-      default:
-        console.log("No attempt stat for this percentage.")
-    }
-
-    let team
-    if (this.props.possession === "H") {
-      team = this.props.gameDetails[0].teams[0]
-    } else {
-      team = this.props.gameDetails[0].teams[1]
-    }
-
-    const newPercentage = (team[made]/team[attempt] * 100).toFixed(2)
-
-    fetch(`http://localhost:3000/teams/${teamId}`, {
-      "method": "PATCH",
-      "headers": {
-        "Accept" : "application/json",
-        "Content-Type" : "application/json"
-      },
-      "body": JSON.stringify({
-        [percentage]: newPercentage
-      })
-    })
-    .then(response => response.json())
-    .then(json => {
-      console.log(json, "new percentage")
-      this.props.editGameDetails()
-    })
-  }
 
   postPlay = (key) => {
     console.log("in the post play");
 
     fetch('http://localhost:3000/plays', {
       'method' : 'POST',
-      // 'mode' : "cors",
       'headers' : {
         "Accept" : "application/json",
         "Content-Type" : "application/json"
@@ -669,12 +606,6 @@ export default class KeyContainer extends Component{
       })
     })
     .then(response => console.log(response))
-    // .then(json => {
-    //   console.log(json, "post play json")
-      // this.props.getPlays()
-      // this.props.getNewPlays(json)
-      // this.props.editGameDetails()
-    // })
   }
 
 

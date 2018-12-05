@@ -36,6 +36,8 @@
 }
 
 .possession-1 {
+  display: flex;
+  flex-direction: row;
   font-weight: bold;
   font-size: 1.2em;
   padding: 10px;
@@ -44,7 +46,13 @@
   border-radius: 3px;
 }
 
+.possession-1 img {
+  margin-left: 72%;
+}
+
 .possession-2 {
+  display: flex;
+  flex-direction: row;
   font-weight: bold;
   font-size: 1.2em;
   padding: 10px;
@@ -52,9 +60,14 @@
   height: 10%;
   border-radius: 3px;
   text-align: right;
+  justify-content: flex-end;
 }
 
-.inactive {
+.possession-2 img {
+  margin-right: 70%;
+}
+
+/* .inactive {
   background-color: #0262B2;
   height: 10%;
   border-radius: 3px;
@@ -63,7 +76,7 @@
 .active {
   background-color: #00FF00;
   border-radius: 3px;
-}
+} */
 
 .team-container-admin {
   background-color: #0262B2;
@@ -134,8 +147,8 @@
   border-radius: 3px;
 }
 
-.team-coaches-container {
-
+.team-coaches-container p {
+  font-weight: bold;
 }
 
 .team-coaches {
@@ -267,9 +280,16 @@
   border-radius: 3px;
 }
 
-.play-container {
+.play-container-admin {
   background-color: white;
   height: 50%;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.play-container-client {
+  background-color: white;
+  height: 90%;
   border-radius: 3px;
   padding: 10px;
 }
@@ -286,7 +306,14 @@
   table-layout: auto;
 }
 
-.play-title {
+.play-title-admin {
+  height: 10%;
+  width: 100%;
+}
+
+.play-title-client {
+  display: flex;
+  align-items: center;
   height: 10%;
   width: 100%;
 }
@@ -315,9 +342,10 @@
   flex-direction: row;
   width: 100vw;
   height: 100vh;
-  background: -webkit-linear-gradient(left,  #000000 0%,#54575c 33%,#54575c 66%,#000000 100%);
+  background: -webkit-linear-gradient(left,  #000000 0%,#565656 33%,#565656 66%,#000000 100%);
   justify-content: center;
   border-radius: 3px;
+  padding: 0.625em;
 }
 
 .client-main {
@@ -356,7 +384,7 @@
 .details-container {
   display: flex;
   flex-direction: row;
-  background-color: #D8D8D8;
+  background-color: #ebebeb;
   height: 80%;
   width: 100%;
   border-radius: 3px;
@@ -374,29 +402,33 @@
   flex-direction: column;
   background-color: white;
   width: 30%;
-  height: 100%;
+  height: 93.5%;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 10px;
   border-radius: 3px;
+  box-shadow: 0.2em 0.2em .4em #00000090;
 }
 
 .plays-client {
   background-color: white;
   margin: 10px;
-  height: 70%;
+  height: 60%;
   width: 100%;
   border-radius: 3px;
+  box-shadow: 0.2em 0.2em .4em #00000090;
 }
 
 .team-client {
-  height: 30%;
+  height: 35%;
   width: 100%;
   display: flex;
   flex-direction: row;
   background-color: white;
   border-radius: 3px;
+  margin-left: 10px;
+  box-shadow: 0.2em 0.2em .4em #00000090;
 }
 
 .player-card {
@@ -486,15 +518,17 @@ table {
   background-image: linear-gradient(#0262B299, #0262B299), url(https://www.fantasycouch.com/wp-content/uploads/2017/01/nba-basketball.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: scroll;
 }
 
 .charts {
   display: flex;
   flex-direction: column;
-  height: 90%;
+  height: 69%;
   width: 70%;
   background-color: white;
   margin: 5px;
   padding: 10px;
   align-items: center;
+  overflow: scroll;
 }

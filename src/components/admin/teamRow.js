@@ -40,9 +40,9 @@ export default class TeamRow extends Component {
 
   fgPercentage = () => {
     if (this.props.team1) {
-      return this.props.team1.fgp
+      return ((this.props.team1.fgm/this.props.team1.fga) * 100).toFixed(2)
     } else if (this.props.team2) {
-      return this.props.team2.fgp
+      return ((this.props.team2.fgm/this.props.team2.fga) * 100).toFixed(2)
     } else {
       return <h1>No team selected</h1>
     }
@@ -60,9 +60,9 @@ export default class TeamRow extends Component {
 
   ygPercentage = () => {
     if (this.props.team1) {
-      return this.props.team1.ygp
+      return ((this.props.team1.ygm/this.props.team1.yga) * 100).toFixed(2)
     } else if (this.props.team2) {
-      return this.props.team2.ygp
+      return ((this.props.team2.ygm/this.props.team2.yga) * 100).toFixed(2)
     } else {
       return <h1>No team selected</h1>
     }
@@ -80,9 +80,9 @@ export default class TeamRow extends Component {
 
   ftPercentage = () => {
     if (this.props.team1) {
-      return this.props.team1.ftp
+      return ((this.props.team1.ftm/this.props.team1.fta) * 100).toFixed(2)
     } else if (this.props.team2) {
-      return this.props.team2.ftp
+      return ((this.props.team2.ftm/this.props.team2.fta) * 100).toFixed(2)
     } else {
       return <h1>No team selected</h1>
     }

@@ -10,6 +10,7 @@ export default class DetailsContainer extends Component {
         <div className="plays-stats">
           <div className="plays-client">
             <PlayByPlayContainer
+              location="client"
               currentPlays={this.props.playsData}
               gameDetails={this.props.gameDetails}
               />

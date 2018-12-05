@@ -5,8 +5,8 @@ export default class PlayByPlayContainer extends Component{
 
   render() {
     return(
-      <div className="play-container">
-        <div className="play-title">
+      <div className={this.props.location === "client" ? "play-container-client" : "play-container-admin"}>
+        <div className={this.props.location === "client" ? "play-title-client" : "play-title-admin"}>
           <h3>Plays</h3>
         </div>
         <div className="scrolling-table">

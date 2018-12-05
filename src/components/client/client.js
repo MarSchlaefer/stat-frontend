@@ -75,8 +75,10 @@ export default class Client extends Component {
     fetch('http://localhost:3000/plays')
     .then(response => response.json())
     .then(json => {
+      let plays = json.slice()
+      let reversedPlays = plays.reverse()
       this.setState({
-        playsData: json
+        playsData: reversedPlays
       })
     })
   }

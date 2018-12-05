@@ -25,6 +25,7 @@ export default class PlaysContainer extends Component {
           currentPlay={this.props.currentPlay}
           />
         <PlayByPlayContainer
+          location="admin"
           currentPlays={this.props.currentPlays}
           gameDetails={this.props.gameDetails}
           possession={this.props.possession}
