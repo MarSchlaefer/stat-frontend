@@ -15,8 +15,7 @@ export default class LogoContainer extends Component {
           team1={this.props.teamsData[0]}
           />
         <Timer
-          minutes={this.props.minutes}
-          seconds={this.props.seconds}
+          gamesData={this.props.gamesData}
           location="client"
           period={this.props.period}
           possession={this.props.possession}

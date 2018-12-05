@@ -18,7 +18,7 @@ class App extends Component {
       keyPress: "",
       currentPlays: [],
       possession: "H",
-      period: "Period 1",
+      period: 1,
       intervalId: 0,
       minutes: 20,
       seconds: 0
@@ -138,7 +138,9 @@ class App extends Component {
 
   startTimer = () => {
     const intervalId = setInterval(this.decrimentTimer, 1000)
-    this.setState({ intervalId })
+    this.setState({
+      intervalId: intervalId
+     })
   }
 
   pauseTimer = () => {
@@ -191,16 +193,39 @@ class App extends Component {
 
   changePeriod = () => {
     console.log("in change period");
-    if (this.state.period === "Period 1") {
+    if (this.state.period === 1) {
       this.setState({
-        period: "Period 2"
-      })
+        period: 2
+      }, () => this.patchPeriod)
     } else {
       this.setState({
-        period: "Period 1"
-      })
+        period: 1
+      }, () => this.patchPeriod)
     }
   }
+
+  patchPeriod = () => {
+    fetch(`http://localhost:3000/games/1`, {
+      'method': "PATCH",
+      'headers': {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      'body': JSON.stringify({
+        period: this.state.period
+      })
+    })
+    .then(response => response.json())
+    .then(game => {
+      console.log(game, "this is the patched game")
+      let newArray = []
+      let newGame = newArray.push(game)
+      this.setState({
+        game: newGame
+      })
+    })
+  }
+
 
   showCharts = () => {
     console.log("show charts");

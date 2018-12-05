@@ -20,11 +20,13 @@ export default class KeyContainer extends Component{
   }
 
   render() {
-    let results = ["Good", "Miss"]
+    let results = ["G - Good", "X - Miss"]
     return(
       <div className="key-title">
-        <h3>Scoring</h3>
-        <p>{this.state.currAction ? this.state.currAction : "No Action"} - {this.state.currTeamId ? (this.state.currTeamId === 1 ? "Home" : "Away") : null} - {this.state.currPlayerId ? `#${this.findCurrPlayerNum()}` : "No Player"}</p>
+        <div className="key-play">
+          <h3>Scoring</h3>
+          <p>{this.state.currAction ? this.state.currAction : "No Action"} - {this.state.currTeamId ? (this.state.currTeamId === 1 ? "Home" : "Away") : null} - {this.state.currPlayerId ? `#${this.findCurrPlayerNum()}` : "No Player"}</p>
+        </div>
         <div className="key-container">
           {this.renderContent(results)}
         </div>
@@ -103,7 +105,6 @@ export default class KeyContainer extends Component{
 
   handleResultClick = (key) => {
     console.log("result clicked");
-
     const playObj = {"action": this.state.currAction, "player_id": this.state.currPlayerId, "timer": `${this.props.minutes}:${this.props.seconds}`, "result": key}
     if (key === "Good") {
       console.log("clicked good");
@@ -136,10 +137,8 @@ export default class KeyContainer extends Component{
   }
 
   handleKeyPress = (event) => {
-
     if (!this.state.currAction) {
       let actionKey
-      // debugger
       switch (event.keyCode) {
         case 74:
         console.log("J")
@@ -243,7 +242,6 @@ export default class KeyContainer extends Component{
           case 48:
           console.log(0);
           numberKey += 0
-          console.log(numberKey, "ugh");
           break;
           case 49:
           console.log(1);

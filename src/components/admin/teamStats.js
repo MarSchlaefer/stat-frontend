@@ -59,12 +59,21 @@ export default class TeamStats extends Component{
   }
 
   makeCoaches = () => {
-    if (this.props.gameDetails.length > 0 && this.props.team1) {
+    // debugger
+    if (this.props.gameDetails && this.props.team1) {
       return this.props.gameDetails[0].teams[0].coaches.map(coach => {
         return <div>{coach.name} - {coach.title}</div>
       })
-    } else if (this.props.gameDetails.length > 0 && this.props.team2) {
+    } else if (this.props.gameDetails && this.props.team2) {
       return this.props.gameDetails[0].teams[1].coaches.map(coach => {
+        return <div>{coach.name} - {coach.title}</div>
+      })
+    } else if (this.props.gamesData && this.props.team1){
+      return this.props.gamesData[0].teams[0].coaches.map(coach => {
+        return <div>{coach.name} - {coach.title}</div>
+      })
+    } else if (this.props.gamesData && this.props.team2) {
+      return this.props.gamesData[0].teams[1].coaches.map(coach => {
         return <div>{coach.name} - {coach.title}</div>
       })
     } else {

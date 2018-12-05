@@ -5,15 +5,6 @@ import Timer from './timer'
 
 export default class TimerContainer extends Component{
 
-  // constructor() {
-  //   super()
-  //   this.state = {
-  //     intervalId: 0,
-  //     minutes: 20,
-  //     seconds: 0
-  //   }
-  // }
-
   render() {
     const minutes = this.props.minutes
     const seconds = this.props.seconds

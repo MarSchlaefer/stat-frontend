@@ -46,6 +46,7 @@ export default class Client extends Component {
   }
 
   renderContent = () => {
+    console.log(this.state.gamesData, "this is gamesData")
     if (this.props.gameDetails.length > 0) {
       return <React.Fragment>
         <GameContainer
@@ -53,7 +54,8 @@ export default class Client extends Component {
           possession={this.props.possession}
           minutes={this.props.minutes}
           seconds={this.props.seconds}
-          gamesData={this.props.gameDetails}
+          gamesData={this.state.gamesData}
+          gameDetails={this.props.gameDetails}
           playsData={this.state.playsData}
           playersData={this.state.playersData}
           teamsData={this.state.teamsData}

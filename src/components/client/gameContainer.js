@@ -9,7 +9,7 @@ export default class GameContainer extends Component {
       <React.Fragment>
         <div className="logo-container">
           <LogoContainer
-            gameDetails={this.props.gameDetails}
+            gamesData={this.props.gamesData}
             minutes={this.props.minutes}
             seconds={this.props.seconds}
             period={this.props.period}
@@ -21,6 +21,7 @@ export default class GameContainer extends Component {
         <div className="details-container">
           <DetailsContainer
             gameDetails={this.props.gameDetails}
+            gamesData={this.props.gamesData}
             playsData={this.props.playsData}
             playersData={this.props.playersData}
             teamsData={this.props.teamsData}

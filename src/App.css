@@ -211,16 +211,28 @@
   height: 20%;
 }
 
+.timer-timer {
+  font-size: 3.5em;
+  margin-bottom: -1em;
+  margin-top: -.8em;
+}
+
 .timer-client {
   display: flex;
   background-color: #A9A9A9;
   height: 66%;
   width: 33%;
   justify-content: center;
+  align-content: center;
   color: white;
   border-radius: 3px;
   box-shadow: 0.2em 0.2em .4em #00000090;
   z-index: 2;
+}
+
+.timer-client p {
+  margin-top: 1.2em;
+  font-size: 3em;
 }
 
 .fouls {
@@ -250,6 +262,10 @@
   box-shadow: 0.2em 0.2em .4em #00000090;
 }
 
+.points-client h4 {
+  margin-bottom: -1em;
+}
+
 .points-client p {
   font-size: 1.5em;
 }
@@ -260,6 +276,16 @@
   height: 30%;
   padding: 5px;
   border-radius: 3px;
+}
+
+.key-play {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.key-play p {
+  margin-left: 1em;
 }
 
 .key-container {
@@ -285,7 +311,7 @@
 
 .play-container-admin {
   background-color: white;
-  height: 50%;
+  height: 47%;
   border-radius: 3px;
   padding: 10px;
 }
