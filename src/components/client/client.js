@@ -7,6 +7,7 @@ export default class Client extends Component {
   constructor() {
     super()
     this.state = {
+      gamesData: [],
       teamsData: [],
       playersData: [],
       playsData: []
@@ -16,6 +17,10 @@ export default class Client extends Component {
   render() {
     return (
       <div className="client-main">
+        <ActionCable
+          channel={{ channel: 'GamesChannel' }}
+          onReceived={this.handleReceivedGame}
+          />
         <ActionCable
           channel={{ channel: 'PlayersChannel' }}
           onReceived={this.handleReceivedPlayer}
@@ -34,6 +39,7 @@ export default class Client extends Component {
   }
 
   componentDidMount = () => {
+    this.getGames()
     this.getTeams()
     this.getPlays()
     this.getPlayers()
@@ -47,7 +53,7 @@ export default class Client extends Component {
           possession={this.props.possession}
           minutes={this.props.minutes}
           seconds={this.props.seconds}
-          gameDetails={this.props.gameDetails}
+          gamesData={this.props.gameDetails}
           playsData={this.state.playsData}
           playersData={this.state.playersData}
           teamsData={this.state.teamsData}
@@ -56,6 +62,15 @@ export default class Client extends Component {
           />
       </React.Fragment>
     }
+  }
+
+  getGames = () => {
+    fetch(`http://localhost:3000/games`)
+    .then(response => response.json())
+    .then(game => {
+      console.log(game)
+      this.setState({ gamesData: game })
+    })
   }
 
   getTeams = () => {
@@ -112,7 +127,6 @@ export default class Client extends Component {
   }
 
   searchPlayersData = (player) => {
-    // debugger
     return this.state.playersData.map(element => {
       if (element.id === player.id) {
         return player
@@ -122,10 +136,27 @@ export default class Client extends Component {
     })
   }
 
+  handleReceivedGame = (response) => {
+    const game = this.parseGameResponse(response)
+    const games = this.searchGamesData(game)
+    this.setState({
+      gamesData: games
+    }, () => console.log(this.state.gamesData, "state changed games"))
+  }
+
+  searchGamesData = (game) => {
+    return this.state.gamesData.map(element => {
+      if (element.id === game.id) {
+        return game
+      } else {
+        return element
+      }
+    })
+  }
+
   handleReceivedTeam = (response) => {
     const team = this.parseTeamResponse(response)
     const teams = this.searchTeamsData(team)
-    // debugger
     this.setState({
       teamsData: teams
     }, () => console.log(this.state.teamsData, "state changed teams"))
@@ -146,7 +177,6 @@ export default class Client extends Component {
   }
 
   parsePlayerResponse = (response) => {
-    // debugger
     return response.player
   }
 
