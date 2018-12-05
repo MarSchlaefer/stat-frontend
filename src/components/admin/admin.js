@@ -31,6 +31,7 @@ export default class Admin extends Component {
           changePossession={this.props.changePossession}
           currentPlay={this.props.currentPlay}
           currentPlays={this.props.currentPlays}
+          currTimer={this.props.currTimer}
           />
         <StatsContainer
           resetTimer={this.props.resetTimer}

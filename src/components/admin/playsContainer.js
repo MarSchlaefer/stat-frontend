@@ -14,7 +14,9 @@ export default class PlaysContainer extends Component {
           gameDetails={this.props.gameDetails}
           minutes={this.props.minutes}
           seconds={this.props.seconds}
-          startClicked={this.props.startClicked}/>
+          startClicked={this.props.startClicked}
+          currTimer={this.props.currTimer}
+          />
         <KeyContainer
           gameDetails={this.props.gameDetails}
           possession={this.props.possession}

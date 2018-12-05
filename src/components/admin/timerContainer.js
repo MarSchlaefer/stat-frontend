@@ -15,7 +15,7 @@ export default class TimerContainer extends Component{
           <br/>
         </div>
         <div className="key" onClick={this.props.startClicked}>
-          <p>Spacebar - Start/Stop</p>
+          <p>Spacebar - {this.props.currTimer}</p>
         </div>
       </div>
     )

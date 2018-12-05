@@ -21,7 +21,8 @@ class App extends Component {
       period: 1,
       intervalId: 0,
       minutes: 20,
-      seconds: 0
+      seconds: 0,
+      currTimer: "Paused"
     }
   }
 
@@ -60,6 +61,7 @@ class App extends Component {
           showCharts={this.showCharts}
           signOut={this.signOut}
           handleKeyDown={this.handleKeyDown}
+          currTimer={this.state.currTimer}
           />
       </div>
     } else if (this.state.signIn === "client" && !this.state.showCharts){
@@ -139,14 +141,16 @@ class App extends Component {
   startTimer = () => {
     const intervalId = setInterval(this.decrimentTimer, 1000)
     this.setState({
-      intervalId: intervalId
+      intervalId: intervalId,
+      currTimer: "Started"
      })
   }
 
   pauseTimer = () => {
     clearInterval(this.state.intervalId)
     this.setState({
-      intervalId: 0
+      intervalId: 0,
+      currTimer: "Paused"
     })
   }
 
@@ -176,7 +180,7 @@ class App extends Component {
         intervalId: 0,
         minutes: 20,
         seconds: 0
-      })  
+      })
     }
   }
 

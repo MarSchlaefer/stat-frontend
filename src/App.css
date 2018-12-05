@@ -309,6 +309,10 @@
   border-radius: 3px;
 }
 
+.key:hover {
+  background-color: #1964a4;
+}
+
 .play-container-admin {
   background-color: white;
   height: 47%;
@@ -483,6 +487,10 @@
 
 .player-details {
   margin-left: 10px;
+}
+
+.player-details p {
+  margin-bottom: -1em;
 }
 
 table {
