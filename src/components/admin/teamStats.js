@@ -7,7 +7,7 @@ export default class TeamStats extends Component{
     return(
       <div className={this.props.location === "client" ? "team-container-client" : "team-container-admin"}>
         <div className={this.props.location === "client" ? "team-title-client" : "team-title-admin"}>
-          <p>team totals</p>
+          <p>{this.makeTitle()}</p>
         </div>
         <table className={this.props.location === "client" ? "team-table-client" : "team-table-admin"}>
           <tbody>
@@ -34,6 +34,16 @@ export default class TeamStats extends Component{
         </div>
       </div>
     )
+  }
+
+  makeTitle = () => {
+    if (this.props.team1) {
+      return `team totals - ${this.props.team1.name}`
+    } else if (this.props.team2) {
+      return `team totals - ${this.props.team2.name}`
+    } else {
+      return 'team totals'
+    }
   }
 
   makeRow = () => {

@@ -7,7 +7,9 @@ export default class TopPlayerContainer extends Component {
   render() {
     return(
       <React.Fragment>
-        <p>Top Players</p>
+        <div className="top-title">
+          <h3>Top Players</h3>
+        </div>
         {this.renderTopPoints()}
         {this.renderTopRebounds()}
         {this.renderTopThree()}
@@ -26,7 +28,8 @@ export default class TopPlayerContainer extends Component {
   }
 
   renderTopPoints = () => {
-    const players = this.props.playersData
+    const players = this.props.playersData.slice()
+    console.log(players);
     const sortedPlayers = players.sort((a, b) => {
       return b.tp - a.tp
     })
@@ -34,7 +37,7 @@ export default class TopPlayerContainer extends Component {
   }
 
   renderTopRebounds = () => {
-    const players = this.props.playersData
+    const players = this.props.playersData.slice()
     const sortedPlayers = players.sort((a, b) => {
       return b.reb - a.reb
     })
@@ -42,7 +45,7 @@ export default class TopPlayerContainer extends Component {
   }
 
   renderTopThree = () => {
-    const players = this.props.playersData
+    const players = this.props.playersData.slice()
     const sortedPlayers = players.sort((a, b) => {
       return b.ygm - a.ygm
     })
@@ -50,7 +53,7 @@ export default class TopPlayerContainer extends Component {
   }
 
   renderTopBlocks = () => {
-    const players = this.props.playersData
+    const players = this.props.playersData.slice()
     const sortedPlayers = players.sort((a, b) => {
       return b.blk - a.blk
     })

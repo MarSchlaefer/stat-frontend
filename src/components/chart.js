@@ -146,6 +146,8 @@ const Chart = (props) => {
           }}
           />
         <br/>
+        <br/>
+        <br/>
         <Bar
           data={ dataTeam2 }
           options={{
