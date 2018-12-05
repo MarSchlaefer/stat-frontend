@@ -171,11 +171,13 @@ class App extends Component {
   }
 
   resetTimer = () => {
-    this.setState({
-      intervalId: 0,
-      minutes: 20,
-      seconds: 0
-    })
+    if (this.state.intervalId === 0) {
+      this.setState({
+        intervalId: 0,
+        minutes: 20,
+        seconds: 0
+      })  
+    }
   }
 
   changePossession = () => {
