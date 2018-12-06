@@ -94,7 +94,7 @@ export default class KeyContainer extends Component{
       this.setState({
         currPlayerId: playerId,
         currTeamId: teamId
-      }, () => this.handleResultClick("non-shot play"))
+      }, () => this.handleResultClick("a non-shot play"))
     } else {
       this.setState({
         currPlayerId: playerId,
