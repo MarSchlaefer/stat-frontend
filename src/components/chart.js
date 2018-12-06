@@ -27,21 +27,6 @@ const Chart = (props) => {
   const team2TotalTO = team2.to
   const team2TotalSTL = team2.stl
 
-  // const findTotals = () => {
-  //   return possiblePlays.map(play => {
-  //     if (play === "3p") {
-  //       return [team1.ygm, team2.ygm]
-  //     } else if (play === "2p") {
-  //       return [team1.fgm, team2.fgm]
-  //     } else if (play === "RB") {
-  //       return [team1.reb, team2.reb]
-  //     } else if (play === "TO") {
-  //       return [team1.to, team2.to]
-  //     } else if (play === "STL") {
-  //       return [team1.stl, team2.stl]
-  //     }
-  //   })
-  // }
 
   const dataTeam1 = {
     labels: team1Players,

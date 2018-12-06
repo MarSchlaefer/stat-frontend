@@ -29,7 +29,6 @@ export default class TopPlayerContainer extends Component {
 
   renderTopPoints = () => {
     const players = this.props.playersData.slice()
-    console.log(players);
     const sortedPlayers = players.sort((a, b) => {
       return b.tp - a.tp
     })

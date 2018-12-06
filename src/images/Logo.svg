@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="873px" height="154px" viewBox="0 0 873 154" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(1.000000, -5.000000)">
+            <g id="Group" transform="translate(0.000000, 6.000000)">
+                <circle id="Oval" stroke="#FFFFFF" fill="#000000" cx="76" cy="76" r="76"></circle>
+                <path d="M135,28 C107.512446,38.9415948 68.1791123,70.6082615 17,123" id="Path-21" stroke="#FFFFFF"></path>
+                <path d="M33,14 C89.9256445,29.0434648 125.258978,63.376798 139,117" id="Path-22" stroke="#FFFFFF"></path>
+                <path d="M90,1 C103.333333,16.0189295 103.333333,28.6855963 90,39" id="Path-24" stroke="#FFFFFF"></path>
+                <path d="M130.021503,38.4961793 C140.530647,51.3786545 139.332182,65.0566855 126.426108,79.5302718" id="Path-24" stroke="#FFFFFF" transform="translate(131.761316, 59.013226) rotate(-85.000000) translate(-131.761316, -59.013226) "></path>
+                <path d="M0,71 C11.4031158,57.6666667 24.7364491,51 40,51" id="Path-25" stroke="#979797"></path>
+                <path d="M0,71 C11.4031158,57.6666667 24.7364491,51 40,51" id="Path-25" stroke="#FFFFFF"></path>
+                <path d="M60.3098039,139.957141 C76.2649071,121.716239 92.012113,113.510405 107.551421,115.339638" id="Path-25" stroke="#FFFFFF" transform="translate(83.930613, 127.523349) rotate(142.000000) translate(-83.930613, -127.523349) "></path>
+                <path d="M39,51 C64.5905381,51 81.5905383,47.0000001 90,39" id="Path-26" stroke="#FFFFFF"></path>
+                <path d="M77.5283157,77.6156776 C94.220084,88.1401196 110.470457,83.7956455 123.606008,79.7797045" id="Path-26" stroke="#FFFFFF" transform="translate(100.567162, 80.897955) rotate(107.000000) translate(-100.567162, -80.897955) "></path>
+            </g>
+            <text id="STAT-TEAM" font-family="Arial-Black, Arial Black" font-size="112" font-weight="700" fill="#000000">
+                <tspan x="173" y="123">STAT TEAM</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

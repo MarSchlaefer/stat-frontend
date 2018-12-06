@@ -257,7 +257,7 @@
   width: 17%;
   color: white;
   border-radius: 3px;
-  font-size: 1em;
+  font-size: 1.1em;
   font-weight: bold;
   box-shadow: 0.2em 0.2em .4em #00000090;
 }
@@ -375,7 +375,9 @@
   flex-direction: row;
   width: 100vw;
   height: 100vh;
-  background: -webkit-linear-gradient(left,  #000000 0%,#565656 33%,#565656 66%,#000000 100%);
+  background-image: linear-gradient(#0262B299, #0262B299), url(https://www.fantasycouch.com/wp-content/uploads/2017/01/nba-basketball.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   justify-content: center;
   border-radius: 3px;
   padding: 0.625em;
@@ -490,7 +492,7 @@
 }
 
 .player-details p {
-  margin-bottom: -1em;
+  margin-bottom: -.5em;
 }
 
 table {
@@ -523,16 +525,28 @@ table {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 33%;
-  width: 33%;
+  height: 40%;
+  width: 40%;
   background-color: white;
   border-radius: 3px;
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
 }
 
-.sign-in-container form {
+.sign-in-container img {
+  height: 70px;
+  width: 100%;
+}
 
+.sign-in-container form {
+  margin-top: 10px;
+  font-size: 2em;
+}
+
+.sign-in-container input {
+  font-size: 1em;
+  height: 40px;
+  width: 200px;
 }
 
 .page-keys {
@@ -543,10 +557,11 @@ table {
 
 .page-key {
   background-color: grey;
-  background-image: linear-gradient(#A9A9A9, lightgrey, #A9A9A9);
+  background-image: linear-gradient(#ebebeb, lightgrey);
   margin: 10px;
   padding: 5px;
   border-radius: 3px;
+  font-size: .8em;
 }
 
 .charts-container {
@@ -554,7 +569,7 @@ table {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 160vh;
+  height: 230vh;
   width: 100vw;
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;

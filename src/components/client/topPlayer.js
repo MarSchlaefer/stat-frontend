@@ -19,13 +19,13 @@ export default class TopPlayer extends Component {
   renderStat = () => {
     if (this.props.player) {
       if (this.props.stat === "Leading Scorer") {
-        return this.props.player.tp
+        return `${this.props.player.tp} points`
       } else if (this.props.stat === "Most Rebounds") {
-        return this.props.player.reb
+        return `${this.props.player.reb} rebounds`
       } else if (this.props.stat === "Most 3-Pointers") {
-        return this.props.player.ygm
+        return `${this.props.player.ygm} 3P shots`
       } else if (this.props.stat === "Most Blocked Shots") {
-        return this.props.player.blk
+        return `${this.props.player.blk} blocked shots`
       } else {
         return "No stats"
       }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Logo from '../images/Logo.svg'
 
 export default class SignIn extends Component {
 
@@ -14,7 +15,7 @@ export default class SignIn extends Component {
     return (
       <div className="sign-in">
         <div className="sign-in-container">
-          <h1>Welcome to Stat-team</h1>
+          <img src={ Logo } alt=''/>
           <br/>
           <form onSubmit={() => this.props.handleSignIn(this.state.usernameValue)}>
             <label>
@@ -23,7 +24,7 @@ export default class SignIn extends Component {
             <br/>
             <input type="text" value={this.state.usernameValue} onChange={this.handleInput}/>
             <br/>
-            <input type="submit" value="Submit"/>
+            <input clsassName= "submit" type="submit" value="Submit"/>
           </form>
         </div>
       </div>
