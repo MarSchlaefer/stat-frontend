@@ -9,6 +9,7 @@
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
   border-radius: 3px;
+  padding-top: 5px;
 }
 
 .column {

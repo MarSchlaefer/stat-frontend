@@ -202,11 +202,11 @@ class App extends Component {
     if (this.state.period === 1) {
       this.setState({
         period: 2
-      }, () => this.patchPeriod)
+      }, () => this.patchPeriod())
     } else {
       this.setState({
         period: 1
-      }, () => this.patchPeriod)
+      }, () => this.patchPeriod())
     }
   }
 
@@ -222,13 +222,14 @@ class App extends Component {
         period: this.state.period
       })
     })
-    .then(response => console.log(response))
+    .then(response => response.json())
     .then(game => {
+
       console.log(game, "this is the patched game")
       let newArray = []
       let newGame = newArray.push(game)
       this.setState({
-        game: newGame
+        game: [game]
       })
     })
   }
