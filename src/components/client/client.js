@@ -70,7 +70,7 @@ export default class Client extends Component {
     fetch(`http://localhost:3000/games`)
     .then(response => response.json())
     .then(game => {
-      console.log(game)
+      console.log(game, "this is the patched game")
       this.setState({ gamesData: game })
     })
   }
@@ -184,6 +184,10 @@ export default class Client extends Component {
 
   parseTeamResponse = (response) => {
     return response.team
+  }
+
+  parseGameResponse = (response) => {
+    return response.game
   }
 
 

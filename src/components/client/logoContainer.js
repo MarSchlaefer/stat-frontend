@@ -17,7 +17,7 @@ export default class LogoContainer extends Component {
         <Timer
           gamesData={this.props.gamesData}
           location="client"
-          period={this.props.period}
+          
           possession={this.props.possession}
           />
         <PointTotal

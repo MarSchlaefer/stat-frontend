@@ -211,6 +211,7 @@ class App extends Component {
   }
 
   patchPeriod = () => {
+    console.log(this.state.period)
     fetch(`http://localhost:3000/games/1`, {
       'method': "PATCH",
       'headers': {
@@ -221,7 +222,7 @@ class App extends Component {
         period: this.state.period
       })
     })
-    .then(response => response.json())
+    .then(response => console.log(response))
     .then(game => {
       console.log(game, "this is the patched game")
       let newArray = []
