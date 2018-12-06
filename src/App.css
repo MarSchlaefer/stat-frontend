@@ -200,6 +200,8 @@
   justify-content: center;
   color: white;
   border-radius: 3px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .timer-nums {
@@ -242,6 +244,8 @@
   width: 17%;
   color: white;
   border-radius: 3px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .points-admin {
@@ -250,6 +254,8 @@
   width: 17%;
   color: white;
   border-radius: 3px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .points-client {
