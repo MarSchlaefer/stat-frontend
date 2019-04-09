@@ -51,7 +51,12 @@ export default class Admin extends Component {
   sortTeams = () => {
     console.log(this.props)
     console.log(this.props.gameDetails, "this is game in sort")
-    const sortedTeams = this.props.gameDetails[0].teams.sort((a, b) => a.id - b.id)
+    let sortedTeams
+    if (this.props.gameDetails.length > 0) {
+      sortedTeams = this.props.gameDetails[0].teams.sort((a, b) => a.id - b.id)
+    } else {
+      sortedTeams = ["No teams"]
+    }
     return sortedTeams
   }
 
