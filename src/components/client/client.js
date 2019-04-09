@@ -67,7 +67,7 @@ export default class Client extends Component {
   }
 
   getGames = () => {
-    fetch(`http://localhost:3000/games`)
+    fetch(`https://stat-team-backend.herokuapp.com/games`)
     .then(response => response.json())
     .then(game => {
       console.log(game, "this is the patched game")
@@ -77,7 +77,7 @@ export default class Client extends Component {
 
   getTeams = () => {
     console.log("teams");
-    fetch('http://localhost:3000/teams')
+    fetch('https://stat-team-backend.herokuapp.com/teams')
     .then(response => response.json())
     .then(json => {
       const teams = json.sort((a, b) => a.id - b.id)
@@ -89,7 +89,7 @@ export default class Client extends Component {
 
   getPlays = () => {
     console.log("plays");
-    fetch('http://localhost:3000/plays')
+    fetch('https://stat-team-backend.herokuapp.com/plays')
     .then(response => response.json())
     .then(json => {
       let plays = json.slice()
@@ -102,7 +102,7 @@ export default class Client extends Component {
 
   getPlayers = () => {
     console.log("players");
-    fetch('http://localhost:3000/players')
+    fetch('https://stat-team-backend.herokuapp.com/players')
     .then(response => response.json())
     .then(json => {
       this.setState({

@@ -94,7 +94,7 @@ class App extends Component {
 
 
   getGame = () => {
-    fetch(`http://localhost:3000/games`)
+    fetch(`https://stat-team-backend.herokuapp.com/games`)
     .then(response => response.json())
     .then(game => {
       console.log(game)
@@ -103,7 +103,7 @@ class App extends Component {
   }
 
   getCurrentPlays = () => {
-    fetch(`http://localhost:3000/plays`)
+    fetch(`https://stat-team-backend.herokuapp.com/plays`)
     .then(response => response.json())
     .then(plays => {
       let playArr = plays.slice()
@@ -212,7 +212,7 @@ class App extends Component {
 
   patchPeriod = () => {
     console.log(this.state.period)
-    fetch(`http://localhost:3000/games/1`, {
+    fetch(`https://stat-team-backend.herokuapp.com/games/1`, {
       'method': "PATCH",
       'headers': {
         'Accept': 'application/json',

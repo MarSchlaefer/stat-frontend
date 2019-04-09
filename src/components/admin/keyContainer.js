@@ -369,7 +369,7 @@ export default class KeyContainer extends Component{
 
     const incrementedAttempt = player[attempt] + 1
 
-    fetch(`http://localhost:3000/players/${playerId}`, {
+    fetch(`https://stat-team-backend.herokuapp.com/players/${playerId}`, {
       "method": "PATCH",
       "headers": {
         "Accept" : "application/json",
@@ -443,7 +443,7 @@ export default class KeyContainer extends Component{
     const incrementedGood = player[good] + 1
     const incrementedPoints = player.tp + points
 
-    fetch(`http://localhost:3000/players/${playerId}`, {
+    fetch(`https://stat-team-backend.herokuapp.com/players/${playerId}`, {
       "method": "PATCH",
       "headers": {
         "Accept" : "application/json",
@@ -509,7 +509,7 @@ export default class KeyContainer extends Component{
 
     const incrementedStat = team[action] + 1
 
-    fetch(`http://localhost:3000/teams/${teamId}`, {
+    fetch(`https://stat-team-backend.herokuapp.com/teams/${teamId}`, {
       "method": "PATCH",
       "headers": {
         "Accept" : "application/json",
@@ -567,7 +567,7 @@ export default class KeyContainer extends Component{
     const incrementedGood = team[good] + 1
     const incrementedPoints = team.tp + points
 
-    fetch(`http://localhost:3000/teams/${teamId}`, {
+    fetch(`https://stat-team-backend.herokuapp.com/teams/${teamId}`, {
       "method": "PATCH",
       "headers": {
         "Accept" : "application/json",
@@ -590,7 +590,7 @@ export default class KeyContainer extends Component{
   postPlay = (key) => {
     console.log("in the post play");
 
-    fetch('http://localhost:3000/plays', {
+    fetch('https://stat-team-backend.herokuapp.com/plays', {
       'method' : 'POST',
       'headers' : {
         "Accept" : "application/json",
